@@ -4,19 +4,27 @@ const clickListener = function (event) {
   content.innerHTML = "";
   const keyData = event.target.innerHTML;
   const buttonsObject = rowData[keyData];
+  const searchDiv = document.createElement("div");
+  const searchInput = document.createElement("input");
+  const searchButton = document.createElement("button");
+  searchDiv.innerHTML = "Search by Id :";
+  searchButton.innerHTML = "Search";
+  searchDiv.appendChild(searchInput);
+  searchDiv.appendChild(searchButton);
   const mainTable = document.createElement("table");
   mainTable.style.border = "3px solid";
+  content.appendChild(searchDiv);
   content.appendChild(mainTable);
 
   let keysDisplayed = false;
   let displayKeyIndex = 0;
-  let valueId = 1;
+  let keyId = 1;
   const maxDisplayedIndex = 6;
   let isModalOpen = false;
+  searchInput.placeholder =("1 - ") + buttonsObject.length;
 
   for (const buttonKey in buttonsObject) {
     const buttonProps = buttonsObject[buttonKey];
-
     if (!keysDisplayed) {
       const trKey = document.createElement("tr");
       trKey.style.border = "1px solid";
@@ -58,10 +66,10 @@ const clickListener = function (event) {
       const propValue = buttonProps[propKey];
       if (displayKeyIndex === 0) {
         const tdValueId = document.createElement("td");
-        tdValueId.innerHTML = valueId;
+        tdValueId.innerHTML = keyId;
         tdValueId.style.border = "1px solid";
         trValue.appendChild(tdValueId);
-        valueId++;
+        keyId++;
       }
       if (displayKeyIndex % 2 === 0 && displayKeyIndex < 5) {
         const tdValue = document.createElement("td");
