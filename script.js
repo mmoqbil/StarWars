@@ -4,16 +4,28 @@ const clickListener = function (event) {
   content.innerHTML = "";
   const keyData = event.target.innerHTML;
   const buttonsObject = rowData[keyData];
-  const searchDiv = document.createElement("div");
-  const searchInput = document.createElement("input");
-  const searchButton = document.createElement("button");
-  searchDiv.innerHTML = "Search by Id :";
-  searchButton.innerHTML = "Search";
-  searchDiv.appendChild(searchInput);
-  searchDiv.appendChild(searchButton);
+
+
+  const searchByIdDiv = document.createElement("div");
+  const searchByIdInput = document.createElement("input");
+  const searchByIdButton = document.createElement("button");
+
+  const searchByNameDiv = document.createElement("div");
+  const searchByNameInput = document.createElement("input");
+  const searchByNameButton = document.createElement("button");
+
+  searchByIdDiv.innerHTML = "Search by Id :";
+  searchByIdButton.innerHTML = "Search";
+
+  searchByNameButton.innerHTML = "Search";
+
+  searchByIdDiv.appendChild(searchByIdInput);
+  searchByIdDiv.appendChild(searchByIdButton);
+
   const mainTable = document.createElement("table");
   mainTable.style.border = "3px solid";
-  content.appendChild(searchDiv);
+  content.appendChild(searchByIdDiv);
+  content.appendChild(searchByNameDiv);
   content.appendChild(mainTable);
 
   let keysDisplayed = false;
@@ -21,7 +33,19 @@ const clickListener = function (event) {
   let keyId = 1;
   const maxDisplayedIndex = 6;
   let isModalOpen = false;
-  searchInput.placeholder =("1 - ") + buttonsObject.length;
+  searchByIdInput.placeholder =(`1 - ${buttonsObject.length}`);
+
+  if(keyData === "films") {
+    searchByNameDiv.innerHTML = 'Search by title :';
+    searchByNameInput.placeholder = `Search by title`;
+    }
+    else {
+        searchByNameDiv.innerHTML = 'Search by name :';
+        searchByNameInput.placeholder = `Search by name`;
+    }
+
+    searchByNameDiv.appendChild(searchByNameInput);
+    searchByNameDiv.appendChild(searchByNameButton);
 
   for (const buttonKey in buttonsObject) {
     const buttonProps = buttonsObject[buttonKey];
@@ -168,6 +192,65 @@ const clickListener = function (event) {
       }
       displayKeyIndex++;
     }
+function filterTableByName(nameString) {
+    const rows = mainTable.querySelectorAll("tr");
+
+    rows.forEach((row, index) => {
+        if (index === 0) {
+            return;
+        }
+
+        const nameCell = row.cells[1]; 
+    
+    if (nameCell) {
+      const nameText = nameCell.textContent.toLowerCase(); 
+      
+      if (nameText.includes(nameString.toLowerCase())) {
+        row.style.display = ""; 
+      } else {
+        row.style.display = "none"; 
+      }
+    }
+    })
+}
+
+searchByNameButton.addEventListener("click", function(event) {
+    filterTableByName(searchByNameInput.value);
+})
+
+    function filterTableById(searchId) {
+        const rows = mainTable.querySelectorAll("tr");
+      
+        
+        rows.forEach((row, index) => {
+          if (index === 0) {
+            
+            return;
+          }
+      
+          const idCell = row.querySelector("td:first-child");
+          if (idCell) {
+            const rowId = parseInt(idCell.innerHTML);
+            if (rowId === searchId) {
+              row.style.display = ""; 
+            } else {
+              row.style.display = "none"; 
+            }
+          }
+        });
+      }
+      
+      
+      searchByIdButton.addEventListener("click", function () {
+        const searchId = parseInt(searchByIdInput.value);
+      
+        if (isNaN(searchId) || searchId<1 || searchId > buttonsObject.length) {
+          alert(`Proszę podać poprawny ID(1 - ${buttonsObject.length}).`);
+          searchByIdInput.value = 1;
+          return;
+        }
+        filterTableById(searchId);
+      });
   }
   const tableButtons = document.createElement("td");
   const buttonPrev = document.createElement("button");
