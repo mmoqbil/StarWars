@@ -21,7 +21,7 @@ const createInput = (placeholder) => {
   return input;
 };
 
-const createDiv = (label, input, button) => {
+const createSearchDiv = (label, input, button) => {
   const div = document.createElement("div");
   div.innerHTML = `${label} :`;
   div.appendChild(input);
@@ -141,6 +141,7 @@ const createTableButtons = () => {
     if(tableInput.value > 1) {
       tableInput.value = parseInt(tableInput.value) - 1;
       updateTableRows(tableInput.value, selectElement.value);
+      updatePageCounter();
     }
      if (parseInt(tableInput.value) === 1){ 
       buttonPrev.disabled = true
@@ -154,6 +155,7 @@ const createTableButtons = () => {
     if(tableInput.value < calculateMaxPages(selectElement.value)) {
       tableInput.value = parseInt(tableInput.value) + 1;
       updateTableRows(tableInput.value, selectElement.value);
+      updatePageCounter();
     }
     if (parseInt(tableInput.value) === calculateMaxPages(selectElement.value)) { 
       buttonNext.disabled = true
@@ -183,6 +185,7 @@ const createTableButtons = () => {
     const selectedValue = parseInt(event.target.value);
     const inputValue = parseInt(tableInput.value);
     updateTableRows(inputValue, selectedValue);
+    updatePageCounter();
 
     const maxPages = calculateMaxPages(selectedValue);
     if(selectedValue == 10) {
@@ -191,6 +194,7 @@ const createTableButtons = () => {
       if(calculateMaxPages(selectElement.value) !== parseInt(tableInput.value)) {
         buttonNext.disabled = false;
       }
+      updatePageCounter();
     }
     else if(selectedValue == 20) {
       updateTableRows(Math.ceil(inputValue/2), 20);
@@ -202,10 +206,12 @@ const createTableButtons = () => {
       {
         buttonNext.disabled = true;
       }
+      updatePageCounter();
     }
     else if (inputValue > maxPages) {
       tableInput.value = maxPages;
       updateTableRows(tableInput.value , selectedValue);
+      updatePageCounter();
     }
   });
   
@@ -214,9 +220,16 @@ const createTableButtons = () => {
     buttonNext.disabled = true;
   }
 
+  const pageNumbersDiv = document.createElement("div");
+pageNumbersDiv.style.display = "inline";
+
+const updatePageCounter = () => {
+  pageNumbersDiv.innerHTML = `Page ${tableInput.value} from ${calculateMaxPages(selectElement.value)}`;
+};
   tableButtons.appendChild(buttonPrev);
   tableButtons.appendChild(tableInput);
   tableButtons.appendChild(buttonNext);
+  tableButtons.appendChild(pageNumbersDiv);
   tableButtons.appendChild(selectElement);
 
 
@@ -230,6 +243,7 @@ const createTableButtons = () => {
       event.target.value = maxPages;
     }
     updateTableRows(event.target.value, selectedValue);
+    updatePageCounter();
     
     
   });
@@ -239,10 +253,12 @@ const createTableButtons = () => {
       const inputValue = parseInt(tableInput.value);
       const selectedValue = parseInt(selectElement.value);
       updateTableRows(inputValue, selectedValue);
+      updatePageCounter();
     }
   });
 
   updateTableRows(1, 10);
+  updatePageCounter();
 
   return tableButtons;
 };
@@ -391,7 +407,7 @@ const initTable = (key) => {
   const buttonsObject = rowData[key];
 
   searchByIdInput = createInput(`1 - ${buttonsObject.length}`);
-  const searchByIdDiv = createDiv(
+  const searchByIdDiv = createSearchDiv(
     "Search by Id",
     searchByIdInput,
     createButton("Search", () =>
@@ -402,7 +418,7 @@ const initTable = (key) => {
   searchByNameInput = createInput(
     key === "films" ? "Search by title" : "Search by name"
   );
-  const searchByNameDiv = createDiv(
+  const searchByNameDiv = createSearchDiv(
     key === "films" ? "Search by title" : "Search by name",
     searchByNameInput,
     createButton("Search", () => filterTableByName(searchByNameInput.value))
