@@ -137,8 +137,30 @@ const createTable = (data) => {
 
 const createTableButtons = () => {
   const tableButtons = document.createElement("td");
-  const buttonPrev = createButton("Prev", () => {});
-  const buttonNext = createButton("Next", () => {});
+  const buttonPrev = createButton("Prev", () => {
+    if(tableInput.value > 1) {
+      tableInput.value = parseInt(tableInput.value) - 1;
+      updateTableRows(tableInput.value, selectElement.value);
+    }
+     if (parseInt(tableInput.value) === 1){ 
+      buttonPrev.disabled = true
+      }
+      buttonNext.disabled=false;
+  });
+
+  buttonPrev.disabled = true;
+
+  const buttonNext = createButton("Next", () => {
+    if(tableInput.value < calculateMaxPages(selectElement.value)) {
+      tableInput.value = parseInt(tableInput.value) + 1;
+      updateTableRows(tableInput.value, selectElement.value);
+    }
+    if (parseInt(tableInput.value) === calculateMaxPages(selectElement.value)) { 
+      buttonNext.disabled = true
+     } 
+    buttonPrev.disabled=false;
+  });
+
   const tableInput = createInput("1");
   tableInput.value = 1;
 
@@ -166,16 +188,31 @@ const createTableButtons = () => {
     if(selectedValue == 10) {
       updateTableRows(inputValue*2-1, 10);
       tableInput.value = inputValue*2-1;
+      if(calculateMaxPages(selectElement.value) !== parseInt(tableInput.value)) {
+        buttonNext.disabled = false;
+      }
     }
     else if(selectedValue == 20) {
       updateTableRows(Math.ceil(inputValue/2), 20);
       tableInput.value = Math.ceil(inputValue/2);
+      if(calculateMaxPages(selectElement.value) !== 1) {
+        buttonNext.disabled = false;
+      }
+      if(calculateMaxPages(20) == parseInt(tableInput.value))
+      {
+        buttonNext.disabled = true;
+      }
     }
     else if (inputValue > maxPages) {
       tableInput.value = maxPages;
       updateTableRows(tableInput.value , selectedValue);
     }
   });
+  
+
+  if(calculateMaxPages(selectElement.value) === 1) {
+    buttonNext.disabled = true;
+  }
 
   tableButtons.appendChild(buttonPrev);
   tableButtons.appendChild(tableInput);
@@ -348,6 +385,8 @@ const filterTableById = (searchId) => {
 };
 
 const initTable = (key) => {
+  console.log(rowData[key]);
+
   content.innerHTML = "";
   const buttonsObject = rowData[key];
 
