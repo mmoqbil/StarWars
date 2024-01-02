@@ -2,7 +2,7 @@ html, body, body * {
     cursor: url("images/sword-cursor.png"), auto;
 }
 body {
-    background-image: url('/images/bg.jpg'); 
+    background-image: url('images/bg.jpg'); 
     background-size: cover; 
     background-position: center; 
     font-family: 'Lato', sans-serif;
@@ -71,7 +71,7 @@ body {
   }
   .logo-star-container {
     position:25%;
-    background-image: url('/images/star.svg'); 
+    background-image: url('images/star.svg'); 
     background-size: contain; 
     background-repeat: no-repeat; 
     width: 200px; 
@@ -79,7 +79,7 @@ body {
     animation: logo-star-container 5s ease-out infinite;
   }
   .logo-wars-container {
-    background-image: url('/images/wars.svg'); 
+    background-image: url('images/wars.svg'); 
     background-size: contain; 
     background-repeat: no-repeat; 
     width: 200px; 
