@@ -1,12 +1,33 @@
+html, body, body * {
+    cursor: url("images/sword-cursor.png"), auto;
+}
 body {
     background-image: url('/images/bg.jpg'); 
     background-size: cover; 
     background-position: center; 
     font-family: 'Lato', sans-serif;
     color :aliceblue;
+    cursor: url('images/sword-cursor.cur'), auto;
   }
 
   button {
+    background-color: #333; 
+    color: #fff; 
+    padding: 6px 11px; 
+    border: 1px solid;
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: all 0.3s; 
+  }
+
+  .button-plus {
+    color: greenyellow;
+  }
+  .button-minus {
+    color:rgb(139, 29, 29);
+  }
+  .main-button {
     background-color: #333; 
     color: #fff; 
     padding: 12px 20px; 
@@ -16,21 +37,27 @@ body {
     font-size: 16px; 
     transition: all 0.3s; 
   }
-  button:hover {
-    padding: 30px 44px;
-  }
-  .main-button {
 
+  .main-button:active {
+    background-color: greenyellow; 
   }
-  
- 
-  button:hover {
+
+  .main-button:hover {
     background-color: #555; 
+    padding: 45px 58px;
+    cursor: url('images/sword-cursor.png'), pointer;
   }
   
-  button:active {
-    background-color: #222; 
+  .button-plus:hover {
+    background-color: green; 
+    scale: 1.2;
   }
+
+  .button-minus:hover {
+    background-color: red; 
+    scale: 1.2;
+  }
+  
 
   input[type="text"] {
     background-color: #333; 
@@ -73,8 +100,7 @@ body {
   }
   
   .mainTable tr:first-child {
-    background-color: #c71818; 
-    font-weight: bold; 
+    background-color: rgb(196, 16, 16); 
   }
 
   .mainTable tr {
@@ -92,7 +118,7 @@ body {
   }
   
   .mainTable td:hover {
-    background-color: #4f4f4f; 
+    background-color: #b80505; 
   }
 
   tr td:last-child {
@@ -139,4 +165,8 @@ body {
       opacity: 0;
       transform: translateZ(-1000em);
     }
+  }
+
+  .table-input {
+    width:80%;
   }

@@ -52,7 +52,10 @@ const createTable = (data) => {
       trKey.appendChild(tdKeyId);
 
       for (const propKey in props) {
-        if (displayKeyIndex % 2 === 0 && displayKeyIndex < maxDisplayedKeyIndex) {
+        if (
+          displayKeyIndex % 2 === 0 &&
+          displayKeyIndex < maxDisplayedKeyIndex
+        ) {
           const tdKey = document.createElement("td");
           tdKey.innerHTML = propKey.toUpperCase();
           tdKey.style.border = "1px solid";
@@ -118,11 +121,11 @@ const createTable = (data) => {
         const rowCheckbox = document.createElement("input");
         rowCheckbox.type = "checkbox";
 
+        buttonPlus.classList.add("button-plus");
+        buttonMinus.classList.add("button-minus");
+
         const tdButtons = document.createElement("td");
-        //tdButtons.style.border = "1px solid";
-        tdButtons.style.display = "flex";
-        tdButtons.style.flexWrap = "nowrap";
-        tdButtons.style.minWidth = 0;
+        tdButtons.style.border = "1px solid";
         tdButtons.appendChild(buttonPlus);
         tdButtons.appendChild(buttonMinus);
         tdButtons.appendChild(rowCheckbox);
@@ -136,34 +139,32 @@ const createTable = (data) => {
   return table;
 };
 
-
-
 const createTableButtons = () => {
   const tableButtons = document.createElement("td");
   const buttonPrev = createButton("Prev", () => {
-    if(tableInput.value > 1) {
+    if (tableInput.value > 1) {
       tableInput.value = parseInt(tableInput.value) - 1;
       updateTableRows(tableInput.value, selectElement.value);
       updatePageCounter();
     }
-     if (parseInt(tableInput.value) === 1){ 
-      buttonPrev.disabled = true
-      }
-      buttonNext.disabled=false;
+    if (parseInt(tableInput.value) === 1) {
+      buttonPrev.disabled = true;
+    }
+    buttonNext.disabled = false;
   });
 
   buttonPrev.disabled = true;
 
   const buttonNext = createButton("Next", () => {
-    if(tableInput.value < calculateMaxPages(selectElement.value)) {
+    if (tableInput.value < calculateMaxPages(selectElement.value)) {
       tableInput.value = parseInt(tableInput.value) + 1;
       updateTableRows(tableInput.value, selectElement.value);
       updatePageCounter();
     }
-    if (parseInt(tableInput.value) === calculateMaxPages(selectElement.value)) { 
-      buttonNext.disabled = true
-     } 
-    buttonPrev.disabled=false;
+    if (parseInt(tableInput.value) === calculateMaxPages(selectElement.value)) {
+      buttonNext.disabled = true;
+    }
+    buttonPrev.disabled = false;
   });
 
   const tableInput = createInput("1");
@@ -191,50 +192,52 @@ const createTableButtons = () => {
     updatePageCounter();
 
     const maxPages = calculateMaxPages(selectedValue);
-    if(selectedValue == 10) {
-      updateTableRows(inputValue*2-1, 10);
-      tableInput.value = inputValue*2-1;
-      if(calculateMaxPages(selectElement.value) !== parseInt(tableInput.value)) {
+    if (selectedValue == 10) {
+      updateTableRows(inputValue * 2 - 1, 10);
+      tableInput.value = inputValue * 2 - 1;
+      if (
+        calculateMaxPages(selectElement.value) !== parseInt(tableInput.value)
+      ) {
         buttonNext.disabled = false;
       }
       updatePageCounter();
-    }
-    else if(selectedValue == 20) {
-      updateTableRows(Math.ceil(inputValue/2), 20);
-      tableInput.value = Math.ceil(inputValue/2);
-      if(calculateMaxPages(selectElement.value) !== 1) {
+    } else if (selectedValue == 20) {
+      updateTableRows(Math.ceil(inputValue / 2), 20);
+      tableInput.value = Math.ceil(inputValue / 2);
+      if (calculateMaxPages(selectElement.value) !== 1) {
         buttonNext.disabled = false;
       }
-      if(calculateMaxPages(20) == parseInt(tableInput.value))
-      {
+      if (calculateMaxPages(20) == parseInt(tableInput.value)) {
         buttonNext.disabled = true;
       }
       updatePageCounter();
-    }
-    else if (inputValue > maxPages) {
+    } else if (inputValue > maxPages) {
       tableInput.value = maxPages;
-      updateTableRows(tableInput.value , selectedValue);
+      updateTableRows(tableInput.value, selectedValue);
       updatePageCounter();
     }
   });
-  
 
-  if(calculateMaxPages(selectElement.value) === 1) {
+  if (calculateMaxPages(selectElement.value) === 1) {
     buttonNext.disabled = true;
   }
 
   const pageNumbersDiv = document.createElement("div");
-pageNumbersDiv.style.display = "inline";
+  pageNumbersDiv.style.display = "inline";
 
-const updatePageCounter = () => {
-  pageNumbersDiv.innerHTML = `Page ${tableInput.value} from ${calculateMaxPages(selectElement.value)}`;
-};
+  const updatePageCounter = () => {
+    pageNumbersDiv.innerHTML = `Page ${
+      tableInput.value
+    } from ${calculateMaxPages(selectElement.value)}`;
+  };
+  tableButtons.style.display = "flex";
+  tableButtons.style.justifyContent = "space-between";
   tableButtons.appendChild(buttonPrev);
   tableButtons.appendChild(tableInput);
   tableButtons.appendChild(buttonNext);
   tableButtons.appendChild(pageNumbersDiv);
   tableButtons.appendChild(selectElement);
-
+  tableInput.classList.add("table-input");
 
   tableInput.addEventListener("input", (event) => {
     const inputValue = parseInt(event.target.value);
@@ -247,8 +250,6 @@ const updatePageCounter = () => {
     }
     updateTableRows(event.target.value, selectedValue);
     updatePageCounter();
-    
-    
   });
 
   tableInput.addEventListener("keydown", (event) => {
@@ -268,7 +269,7 @@ const updatePageCounter = () => {
 
 const calculateMaxPages = (selectElementValue) => {
   const rowsPerPage = parseInt(selectElementValue);
-  const totalRows = mainTable.querySelectorAll("tr").length - 1; 
+  const totalRows = mainTable.querySelectorAll("tr").length - 1;
   return Math.ceil(totalRows / rowsPerPage);
 };
 
@@ -280,7 +281,10 @@ const updateTableRows = (inputValue, selectedValue) => {
       return;
     }
 
-    if (index >= (inputValue - 1) * selectedValue + 1 && index <= inputValue * selectedValue) {
+    if (
+      index >= (inputValue - 1) * selectedValue + 1 &&
+      index <= inputValue * selectedValue
+    ) {
       row.style.display = "";
     } else {
       row.style.display = "none";
@@ -328,7 +332,7 @@ const showModal = (data) => {
       const tdKeyModal = document.createElement("td");
       const tdValueModal = document.createElement("td");
 
-    tdKeyModal.classList.add("tdModal");
+      tdKeyModal.classList.add("tdModal");
 
       tdValueModal.classList.add("tdModal");
 
@@ -392,6 +396,7 @@ const initTable = (key) => {
   console.log(rowData[key]);
 
   content.innerHTML = "";
+  const searchesDiv = document.createElement("div");
   const buttonsObject = rowData[key];
 
   searchByIdInput = createInput(`1 - ${buttonsObject.length}`);
@@ -414,9 +419,11 @@ const initTable = (key) => {
 
   mainTable = createTable(buttonsObject);
   mainTable.classList.add("mainTable");
-
-  content.appendChild(searchByIdDiv);
-  content.appendChild(searchByNameDiv);
+  searchesDiv.style.display = "flex";
+  searchesDiv.style.justifyContent = "space-around";
+  searchesDiv.appendChild(searchByIdDiv);
+  searchesDiv.appendChild(searchByNameDiv);
+  content.appendChild(searchesDiv);
   content.appendChild(mainTable);
 
   const tableButtons = createTableButtons();
@@ -434,11 +441,10 @@ const initTable = (key) => {
   });
 };
 
-
-
 const initUI = () => {
   Object.keys(rowData).forEach((key) => {
     const button = createButton(key, () => initTable(key));
+    button.classList.add("main-button");
     buttons.appendChild(button);
   });
 };
