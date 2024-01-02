@@ -119,7 +119,10 @@ const createTable = (data) => {
         rowCheckbox.type = "checkbox";
 
         const tdButtons = document.createElement("td");
-        tdButtons.style.border = "1px solid";
+        //tdButtons.style.border = "1px solid";
+        tdButtons.style.display = "flex";
+        tdButtons.style.flexWrap = "nowrap";
+        tdButtons.style.minWidth = 0;
         tdButtons.appendChild(buttonPlus);
         tdButtons.appendChild(buttonMinus);
         tdButtons.appendChild(rowCheckbox);
@@ -306,15 +309,7 @@ const showModal = (data) => {
   if (!isModalOpen) {
     isModalOpen = true;
     const modal = document.createElement("div");
-    modal.style.position = "fixed";
-    modal.style.top = "50%";
-    modal.style.left = "50%";
-    modal.style.transform = "translate(-50%, -50%)";
-    modal.style.backgroundColor = "white";
-    modal.style.padding = "20px";
-    modal.style.border = "2px solid yellow";
-    modal.style.zIndex = "1000";
-    modal.style.maxWidth = "80%";
+    modal.classList.add("modal");
 
     const buttonX = createButton("X", () => {
       isModalOpen = false;
@@ -324,8 +319,7 @@ const showModal = (data) => {
     content.appendChild(modal);
 
     const tableModal = document.createElement("table");
-    tableModal.style.width = "100%";
-    tableModal.style.overflowX = "auto";
+    tableModal.classList.add("tableModal");
     modal.appendChild(tableModal);
 
     for (const propKey in data) {
@@ -334,15 +328,9 @@ const showModal = (data) => {
       const tdKeyModal = document.createElement("td");
       const tdValueModal = document.createElement("td");
 
-      tdKeyModal.style.maxWidth = "1000px";
-      tdKeyModal.style.overflow = "hidden";
-      tdKeyModal.style.textOverflow = "ellipsis";
-      tdKeyModal.style.whiteSpace = "nowrap";
+    tdKeyModal.classList.add("tdModal");
 
-      tdValueModal.style.maxWidth = "1000px";
-      tdValueModal.style.overflow = "hidden";
-      tdValueModal.style.textOverflow = "ellipsis";
-      tdValueModal.style.whiteSpace = "nowrap";
+      tdValueModal.classList.add("tdModal");
 
       tdKeyModal.innerHTML = propKey;
       tdValueModal.innerHTML = propValue;
@@ -425,6 +413,7 @@ const initTable = (key) => {
   );
 
   mainTable = createTable(buttonsObject);
+  mainTable.classList.add("mainTable");
 
   content.appendChild(searchByIdDiv);
   content.appendChild(searchByNameDiv);
@@ -444,7 +433,6 @@ const initTable = (key) => {
     deleteButton.style.display = atLeastOneChecked ? "block" : "none";
   });
 };
-
 
 
 

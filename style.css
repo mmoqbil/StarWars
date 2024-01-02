@@ -1,0 +1,142 @@
+body {
+    background-image: url('/images/bg.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    font-family: 'Lato', sans-serif;
+    color :aliceblue;
+  }
+
+  button {
+    background-color: #333; 
+    color: #fff; 
+    padding: 12px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: all 0.3s; 
+  }
+  button:hover {
+    padding: 30px 44px;
+  }
+  .main-button {
+
+  }
+  
+ 
+  button:hover {
+    background-color: #555; 
+  }
+  
+  button:active {
+    background-color: #222; 
+  }
+
+  input[type="text"] {
+    background-color: #333; 
+    color: #fff; 
+    padding: 8px; 
+    border: 1px solid #555; 
+  }
+  .logo-container {
+    display: flex;
+    justify-content:center;
+  }
+  .logo-star-container {
+    position:25%;
+    background-image: url('/images/star.svg'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    width: 200px; 
+    height: 100px; 
+    animation: logo-star-container 5s ease-out infinite;
+  }
+  .logo-wars-container {
+    background-image: url('/images/wars.svg'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    width: 200px; 
+    height: 100px;
+    animation: logo-star-container 5s ease-out infinite; 
+  }
+
+.buttons-container {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.mainTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1f1f1f; 
+  }
+  
+  .mainTable tr:first-child {
+    background-color: #c71818; 
+    font-weight: bold; 
+  }
+
+  .mainTable tr {
+    background-color: #2f2f2f; 
+  }
+  
+  .mainTable tr:hover {
+    background-color: #3f3f3f; /
+  }
+  
+  .mainTable td {
+    padding: 10px;
+    border: 1px solid #555; 
+    color: #fff; 
+  }
+  
+  .mainTable td:hover {
+    background-color: #4f4f4f; 
+  }
+
+  tr td:last-child {
+    min-width: 120px; 
+  }
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid yellow;
+    z-index: 1000;
+    max-width: 80%;
+    background-color: black;
+  }
+
+  .tableModal {
+    width: "100%";
+    overflow-x: "auto";
+  }
+
+  .tdModal {
+    max-width: 1000px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  }
+
+  @keyframes logo-star-container {
+    0% {
+      opacity: 0;
+      transform: scale(0.5) translateY(-1em);
+    }
+    20% {
+      opacity: 1;
+    }
+    89% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateZ(-1000em);
+    }
+  }
