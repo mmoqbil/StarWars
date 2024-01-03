@@ -23,9 +23,17 @@ body {
 
   .button-plus {
     color: greenyellow;
+    padding: 6px 12px;
+    margin: 2px;
   }
   .button-minus {
     color:rgb(139, 29, 29);
+    padding: 6px 12px;
+    margin: 2px;
+  }
+  .disabledButton {
+    background-color: #1f1f1f;
+    color:#2f2f2f;
   }
   .main-button {
     background-color: #333; 
@@ -38,14 +46,13 @@ body {
     transition: all 0.3s; 
   }
 
-  .main-button:active {
-    background-color: greenyellow; 
-  }
-
   .main-button:hover {
-    background-color: #555; 
+    background-color: greenyellow; 
     padding: 45px 58px;
-    cursor: url('images/sword-cursor.png'), pointer;
+    transform: rotate(5deg);
+  }
+  .main-button:nth-child(even):hover {
+    transform: rotate(-5deg);
   }
   
   .button-plus:hover {
@@ -65,6 +72,12 @@ body {
     padding: 8px; 
     border: 1px solid #555; 
   }
+
+  .div-searches {
+    display: flex;
+    justify-content:space-around;
+    margin: 17px;
+  }
   .logo-container {
     display: flex;
     justify-content:center;
@@ -74,16 +87,16 @@ body {
     background-image: url('images/star.svg'); 
     background-size: contain; 
     background-repeat: no-repeat; 
-    width: 200px; 
-    height: 100px; 
+    width: 300px; 
+    height: 150px; 
     animation: logo-star-container 5s ease-out infinite;
   }
   .logo-wars-container {
     background-image: url('images/wars.svg'); 
     background-size: contain; 
     background-repeat: no-repeat; 
-    width: 200px; 
-    height: 100px;
+    width: 300px; 
+    height: 150px;
     animation: logo-star-container 5s ease-out infinite; 
   }
 
@@ -96,7 +109,9 @@ body {
 .mainTable {
     width: 100%;
     border-collapse: collapse;
-    background-color: #1f1f1f; 
+    background-color: #1f1f1f;
+    margin-bottom: 15px; 
+    margin-top: 15px;
   }
   
   .mainTable tr:first-child {
@@ -149,6 +164,11 @@ body {
   white-space: nowrap;
   }
 
+  .modal button {
+    background-color: red;
+    color:yellow;
+  }
+
   @keyframes logo-star-container {
     0% {
       opacity: 0;
@@ -169,4 +189,35 @@ body {
 
   .table-input {
     width:80%;
+  }
+
+  .loading-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+    margin-top: 50px;
+  }
+  
+  .loading-text {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .hide-able-element {
+    display :none;
   }

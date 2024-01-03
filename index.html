@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <style>html {
-    cursor: url('data:images/sword-cursor.png'), crosshair;
+    cursor: url('images/sword-cursor.png'), auto;
 }</style>
 <body>
     <div class = "logo-container">
@@ -17,6 +17,10 @@
     <div id = "wars" class = "logo-wars-container"></div>
 </div>
     <div id = "buttons" class = "buttons-container"></div>
+    <div class="loading-container" id="loadingContainer">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading...</div>
+      </div>
     <div id = "content"></div>
     <script type="module" src="./main.js"></script>
 </body>

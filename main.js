@@ -149,11 +149,14 @@ const createTableButtons = () => {
     }
     if (parseInt(tableInput.value) === 1) {
       buttonPrev.disabled = true;
+      buttonPrev.classList.add("disabledButton");
     }
     buttonNext.disabled = false;
+    buttonNext.classList.remove("disabledButton");
   });
 
   buttonPrev.disabled = true;
+  buttonPrev.classList.add("disabledButton");
 
   const buttonNext = createButton("Next", () => {
     if (tableInput.value < calculateMaxPages(selectElement.value)) {
@@ -163,8 +166,10 @@ const createTableButtons = () => {
     }
     if (parseInt(tableInput.value) === calculateMaxPages(selectElement.value)) {
       buttonNext.disabled = true;
+      buttonNext.classList.add("disabledButton");
     }
     buttonPrev.disabled = false;
+    buttonPrev.classList.remove("disabledButton");
   });
 
   const tableInput = createInput("1");
@@ -199,16 +204,23 @@ const createTableButtons = () => {
         calculateMaxPages(selectElement.value) !== parseInt(tableInput.value)
       ) {
         buttonNext.disabled = false;
+        buttonNext.classList.remove("disabledButton");
       }
       updatePageCounter();
     } else if (selectedValue == 20) {
       updateTableRows(Math.ceil(inputValue / 2), 20);
       tableInput.value = Math.ceil(inputValue / 2);
       if (calculateMaxPages(selectElement.value) !== 1) {
-        buttonNext.disabled = false;
+        buttonPrev.disabled = false;
+        buttonPrev.classList.remove("disabledButton");
+      }
+      if (parseInt(tableInput.value) === 1){
+        buttonPrev.disabled = true;
+        buttonPrev.classList.add("disabledButton");
       }
       if (calculateMaxPages(20) == parseInt(tableInput.value)) {
         buttonNext.disabled = true;
+        buttonNext.classList.add("disabledButton");
       }
       updatePageCounter();
     } else if (inputValue > maxPages) {
@@ -220,6 +232,7 @@ const createTableButtons = () => {
 
   if (calculateMaxPages(selectElement.value) === 1) {
     buttonNext.disabled = true;
+    buttonNext.classList.add("disabledButton");
   }
 
   const pageNumbersDiv = document.createElement("div");
@@ -243,10 +256,30 @@ const createTableButtons = () => {
     const inputValue = parseInt(event.target.value);
     const maxPages = calculateMaxPages(selectElement.value);
     const selectedValue = parseInt(selectElement.value);
+    if(inputValue !== maxPages) {
+      buttonNext.disabled = false;
+      buttonNext.classList.remove("disabledButton");
+    }
+    if (inputValue === 1) {
+      buttonPrev.disabled = true;
+      buttonPrev.classList.add("disabledButton");
+    }
+    if(inputValue === maxPages) {
+      buttonNext.disabled = true;
+      buttonNext.classList.add("disabledButton");
+    } 
+    if(inputValue !== 1) {
+      buttonPrev.disabled=false;
+      buttonPrev.classList.remove("disabledButton");
+    }
     if (inputValue < 1) {
       event.target.value = 1;
+      buttonPrev.disabled = true;
+      buttonPrev.classList.add("disabledButton");
     } else if (inputValue > maxPages) {
       event.target.value = maxPages;
+      buttonNext.disabled = true;
+      buttonNext.classList.add("disabledButton");
     }
     updateTableRows(event.target.value, selectedValue);
     updatePageCounter();
@@ -256,6 +289,10 @@ const createTableButtons = () => {
     if (event.key === "Enter") {
       const inputValue = parseInt(tableInput.value);
       const selectedValue = parseInt(selectElement.value);
+      if(inputValue !== calculateMaxPages(selectedValue)) {
+        buttonNext.disabled = false;
+        buttonNext.classList.remove("disabledButton");
+      }
       updateTableRows(inputValue, selectedValue);
       updatePageCounter();
     }
@@ -393,10 +430,18 @@ const filterTableById = (searchId) => {
 };
 
 const initTable = (key) => {
+  
+  const loadingContainer = document.getElementById("loadingContainer");
+  content.classList.add("hide-able-element");
+  loadingContainer.style.display = "flex";
+  setTimeout(() => {
+    loadingContainer.style.display = "none";
+    content.classList.remove("hide-able-element");
+  }, 650);
   console.log(rowData[key]);
 
   content.innerHTML = "";
-  const searchesDiv = document.createElement("div");
+  const divSearches = document.createElement("div");
   const buttonsObject = rowData[key];
 
   searchByIdInput = createInput(`1 - ${buttonsObject.length}`);
@@ -419,11 +464,10 @@ const initTable = (key) => {
 
   mainTable = createTable(buttonsObject);
   mainTable.classList.add("mainTable");
-  searchesDiv.style.display = "flex";
-  searchesDiv.style.justifyContent = "space-around";
-  searchesDiv.appendChild(searchByIdDiv);
-  searchesDiv.appendChild(searchByNameDiv);
-  content.appendChild(searchesDiv);
+  divSearches.classList.add("div-searches")
+  divSearches.appendChild(searchByIdDiv);
+  divSearches.appendChild(searchByNameDiv);
+  content.appendChild(divSearches);
   content.appendChild(mainTable);
 
   const tableButtons = createTableButtons();
