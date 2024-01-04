@@ -85,7 +85,7 @@ const createTable = (data) => {
       const propValue = props[propKey];
 
       if (displayKeyIndex === 0) {
-        const tdValueId = document.createElement("tr");
+        const tdValueId = document.createElement("td");
         tdValueId.innerHTML = keyId;
         tdValueId.style.border = "1px solid";
         trValue.appendChild(tdValueId);
