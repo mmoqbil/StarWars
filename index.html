@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style-light.css" id="lightStylesheet">
+    <link rel="stylesheet" href="style.css" id="mainStylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <!-- Bootstrap Font Icon CSS -->
@@ -14,7 +15,7 @@
     <div class = "logo-container">
     <div id = "star" class = "logo-star-container"></div>
     <div id = "wars" class = "logo-wars-container"></div>
-    <div class = "theme-container">
+    <div class = "theme-toggle" id="themeToggle">
         <h3><i class="bi bi-moon-stars-fill" id="darkIcon"></i></h3>
         <h3><i class="bi bi-sun" id="lightIcon"></i></h3>
     </div>
@@ -25,6 +26,11 @@
         <div class="loading-text">Loading...</div>
       </div>
     <div id = "content"></div>
+    <div id = "footer-div">
+    <footer class="footer" id ="footer">
+        <p class="footer-text">Mateusz Moqbil 2024</p>
+    </footer>
+    </div>
     <script type="module" src="./main.js"></script>
 </body>
 </html>

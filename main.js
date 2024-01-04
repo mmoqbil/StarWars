@@ -85,7 +85,7 @@ const createTable = (data) => {
       const propValue = props[propKey];
 
       if (displayKeyIndex === 0) {
-        const tdValueId = document.createElement("td");
+        const tdValueId = document.createElement("tr");
         tdValueId.innerHTML = keyId;
         tdValueId.style.border = "1px solid";
         trValue.appendChild(tdValueId);
@@ -237,11 +237,11 @@ const createTableButtons = () => {
     buttonNext.classList.add("disabledButton");
   }
 
-  const pageNumbersDiv = document.createElement("div");
-  pageNumbersDiv.style.display = "inline";
+  const pageCounterDiv = document.createElement("div");
+  pageCounterDiv.classList.add("page-counter");
 
   const updatePageCounter = () => {
-    pageNumbersDiv.innerHTML = `Page ${
+    pageCounterDiv.innerHTML = `Page ${
       tableInput.value
     } from ${calculateMaxPages(selectElement.value)}`;
   };
@@ -251,7 +251,7 @@ const createTableButtons = () => {
   tableButtons.appendChild(buttonPrev);
   tableButtons.appendChild(tableInput);
   tableButtons.appendChild(buttonNext);
-  tableButtons.appendChild(pageNumbersDiv);
+  tableButtons.appendChild(pageCounterDiv);
   tableButtons.appendChild(selectElement);
   tableInput.classList.add("table-input");
 
@@ -433,7 +433,7 @@ const filterTableById = (searchId) => {
 };
 
 const initTable = (key) => {
-  
+
   const loadingContainer = document.getElementById("loadingContainer");
   content.classList.add("hide-able-element");
   loadingContainer.style.display = "flex";
@@ -441,7 +441,10 @@ const initTable = (key) => {
     loadingContainer.style.display = "none";
     content.classList.remove("hide-able-element");
   }, 300);
-  
+
+  const footer = document.getElementById("footer");
+  footer.classList.add("footer-relative");
+
   console.log(rowData[key]);
 
   content.innerHTML = "";
@@ -480,8 +483,10 @@ searchByIdInput.classList.add("input-default");
   const tableButtons = createTableButtons();
   content.appendChild(tableButtons);
 
+  const deleteButtonDiv = document.createElement("div")
   const deleteButton = createDeleteButton();
-  content.appendChild(deleteButton);
+  deleteButtonDiv.appendChild(deleteButton);
+  content.appendChild(deleteButtonDiv);
 
   document.addEventListener("change", () => {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -489,8 +494,46 @@ searchByIdInput.classList.add("input-default");
       (checkbox) => checkbox.checked
     );
     deleteButton.style.display = atLeastOneChecked ? "block" : "none";
+
+    checkboxes.forEach((checkbox) => {
+      const checkedRow = checkbox.closest("tr");
+  
+      if (checkbox.checked) {
+        if (checkedRow) {
+          checkedRow.classList.add("checked-row");
+        }
+      } else {
+        if (checkedRow) {
+          checkedRow.classList.remove("checked-row");
+        }
+      }
+    });
   });
 };
+
+const initTheme = () => {
+  const lightIcon = document.getElementById('lightIcon');
+  lightIcon.style.display  = 'none';
+  const darkIcon = document.getElementById('darkIcon');
+  const mainStylesheet = document.getElementById('mainStylesheet');
+  const lightStylesheet = document.getElementById('lightStylesheet');
+
+  themeToggle.addEventListener('click', function () {
+
+    if (mainStylesheet.getAttribute('href') === 'style.css') {
+      mainStylesheet.href = 'style-light.css';
+      lightStylesheet.href = 'style-light.css';  // Dodaj tę linię
+    } else {
+      mainStylesheet.href = 'style.css';
+      lightStylesheet.href = 'style.css';  // Dodaj tę linię
+    }
+
+    lightIcon.style.display = lightIcon.style.display === 'none' ? 'inline' : 'none';
+    darkIcon.style.display = darkIcon.style.display === 'none' ? 'inline' : 'none';
+  });
+
+  initUI();
+}
 
 const initUI = () => {
   Object.keys(rowData).forEach((key) => {
@@ -500,4 +543,4 @@ const initUI = () => {
   });
 };
 
-initUI();
+initTheme();
