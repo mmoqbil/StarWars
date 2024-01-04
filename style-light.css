@@ -1,291 +1,319 @@
-html, body, body * {
-    cursor: url("images/sword-cursor.png"), auto;
+:root {
+    --cursor-url: url("images/sword-cursor.png");
+    --bg-light: url('images/bg-light.png');
+    --font-family: 'Lato', sans-serif;
+    --text-color-light: #333;
+    --button-bg-light: #fff;
+    --button-text-light: #333;
+    --button-border-light: #333;
+    --button-hover-bg-light: #555;
+    --button-hover-text-light: #fff;
+    --main-button-bg-light: #fff;
+    --main-button-text-light: #333;
+    --main-button-hover-bg-light: greenyellow;
+    --main-button-hover-text-light: darkorange;
+    --even-button-hover-bg-light: aquamarine;
+    --even-button-hover-text-light: #b80505;
+    --input-bg-light: #fff;
+    --input-border-light: #333;
+    --logo-star-bg-light: url('images/star.svg');
+    --logo-wars-bg-light: url('images/wars.svg');
+    --table-bg-light: #fff;
+    --table-first-row-bg-light: rgb(196, 16, 16);
+    --table-row-bg-light: #eee;
+    --table-row-hover-bg-light: #ccc;
+    --table-td-border-light: #333;
+    --table-td-color-light: #333;
+    --table-td-hover-bg-light: #b80505;
+    --modal-bg-light: #fff;
+    --modal-border-light: yellow;
+    --modal-button-bg-light: red;
+    --modal-button-text-light: yellow;
+    --table-input-bg-light: #fff;
+    --table-input-color-light: #333;
+    --loading-text-color-light: #333;
+    --select-bg-light: #fff;
+    --select-color-light: #333;
+    --checkbox-transform-light: scale(1.1);
+    --footer-bg-light: #f2f2f2;
+    --footer-color-light: #333;
 }
-
-body {
-    background-image: url('images/bg-light.png'); 
-    background-size: cover; 
-    background-position: center; 
-    font-family: 'Lato', sans-serif;
-    color: #333; 
-}
-
-button {
-    background-color: #fff; 
-    color: #333; 
-    border: 1px solid #333; 
-    cursor: pointer; 
-    font-size: 16px; 
-    transition: all 0.3s; 
-}
-
-.button-plus {
-    color: greenyellow;
-    padding: 6px 12px;
-    margin: 2px;
-    font-size: 20px;
-}
-
-.button-minus {
-    color:rgb(139, 29, 29);
-    padding: 6px 12px;
-    margin: 2px;
-    font-size: 20px;
-}
-
-.disabledButton {
-    background-color: rgb(150, 138, 138);
-    color:#635d5d;
-}
-
-.main-button {
-    background-color: #fff; 
-    color: #333; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 16px; 
-    transition: all 0.3s; 
-}
-
-button:hover {
-    cursor: url('images/sword-cursor.png'), auto;
-    background-color: #555;
-    color: #fff; 
-}
-
-.main-button:hover {
-    background-color: greenyellow; 
-    color: darkorange;
-    padding: 12px 20px; 
-    transform: rotate(5deg);
-}
-
-.main-button:nth-child(even):hover {
-    background-color: aquamarine;
-    color: #b80505;
-    transform: rotate(-5deg);
-}
-
-.button-plus:hover {
-    background-color: green; 
-    color: greenyellow;
-    scale: 1.2;
-}
-
-.button-minus:hover {
-    background-color: red; 
-    color: rgb(139, 29, 29);
-    scale: 1.2;
-}
-
-.div-searches {
-    display: flex;
-    justify-content:space-around;
-    margin: 17px;
-}
-
-.input-default {
-    background-color: #fff; 
-    border: 1px solid #333; 
-    color: #333; 
-}
-
-.logo-container {
-    display: flex;
-    justify-content:center;
-}
-
-.logo-star-container {
-    position: 25%;
-    background-image: url('images/star.svg'); 
-    background-size: contain; 
-    background-repeat: no-repeat; 
-    width: 300px; 
-    height: 150px; 
-    animation: logo-star-container 5s ease-out infinite;
-}
-
-.logo-wars-container {
-    background-image: url('images/wars.svg'); 
-    background-size: contain; 
-    background-repeat: no-repeat; 
-    width: 300px; 
-    height: 150px;
-    animation: logo-star-container 5s ease-out infinite; 
-}
-
-.buttons-container {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-}
-
-.mainTable {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff; 
-    margin-bottom: 15px; 
-    margin-top: 15px;
-}
-
-.mainTable tr:first-child {
-    background-color: rgb(196, 16, 16); 
-}
-
-.mainTable tr {
-    background-color: #eee; 
-}
-
-.mainTable tr:hover {
-    background-color: #ccc; 
-}
-
-.mainTable td {
-    padding: 10px;
-    border: 1px solid #333; 
-    color: #333; 
-}
-
-.mainTable td:hover {
-    background-color: #b80505; 
-}
-
-tr td:last-child {
-    min-width: 120px; 
-}
-
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff; 
-    padding: 20px;
-    border: 2px solid yellow;
-    z-index: 1000;
-    max-width: 80%;
-    background-color: #fff; 
-}
-
-.tableModal {
-    width: "100%";
-    overflow-x: "auto";
-}
-
-.tdModal {
-    max-width: 1000px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.modal button {
-    background-color: red;
-    color: yellow;
-}
-
-@keyframes logo-star-container {
-    0% {
-        opacity: 0;
-        transform: scale(0.5) translateY(-1em);
+    html, body, body * {
+        cursor: var(--cursor-url), auto;
     }
-    20% {
-        opacity: 1;
+
+    body {
+        background-image: var(--bg-light);
+        background-size: cover;
+        background-position: center;
+        font-family: var(--font-family);
+        color: var(--text-color-light);
+        transition: background-color 0.5s ease;
     }
-    89% {
-        opacity: 1;
-        transform: scale(1);
+
+    button {
+        background-color: var(--button-bg-light);
+        color: var(--button-text-light);
+        border: 1px solid var(--button-border-light);
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s;
     }
-    100% {
-        opacity: 0;
-        transform: translateZ(-1000em);
+
+    .button-plus {
+        color: greenyellow;
+        padding: 6px 12px;
+        margin: 2px;
+        font-size: 20px;
     }
-}
 
-.table-input {
-    width: 80%;
-    background-color: #fff; 
-    color: #333; 
-    border: 1px solid #333; 
-}
+    .button-minus {
+        color: rgb(139, 29, 29);
+        padding: 6px 12px;
+        margin: 2px;
+        font-size: 20px;
+    }
 
-.loading-container {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    .disabledButton {
+        background-color: rgb(150, 138, 138);
+        color: #635d5d;
+    }
 
-.loading-spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    border-top: 4px solid #3498db;
-    width: 100px;
-    height: 100px;
-    animation: spin 1s linear infinite;
-    margin-top: 50px;
-}
+    .main-button {
+        background-color: var(--main-button-bg-light);
+        color: var(--main-button-text-light);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s;
+    }
 
-.loading-text {
-    font-size: 24px;
-    color: #333;
-}
+    button:hover {
+        cursor: var(--cursor-url), auto;
+        background-color: var(--button-hover-bg-light);
+        color: var(--button-hover-text-light);
+    }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    .main-button:hover {
+        background-color: var(--main-button-hover-bg-light);
+        color: var(--main-button-hover-text-light);
+        padding: 12px 20px;
+        transform: rotate(5deg);
+    }
 
-.hide-able-element {
-    display: none;
-}
+    .main-button:nth-child(even):hover {
+        background-color: var(--even-button-hover-bg-light);
+        color: var(--even-button-hover-text-light);
+        transform: rotate(-5deg);
+    }
 
-select {
-    background-color: #fff; 
-    color: #333; 
-    border: 1px solid #333; 
-}
+    .button-plus:hover {
+        background-color: green;
+        color: greenyellow;
+        scale: 1.2;
+    }
 
-input[type=checkbox] {
-    transform: scale(1.1);
-}
+    .button-minus:hover {
+        background-color: red;
+        color: rgb(139, 29, 29);
+        scale: 1.2;
+    }
 
-.theme-toggle {
-    display: flex;
-}
+    .div-searches {
+        display: flex;
+        justify-content: space-around;
+        margin: 17px;
+    }
 
-i {
-    margin: 5px;
-}
+    .input-default {
+        background-color: var(--input-bg-light);
+        border: 1px solid var(--input-border-light);
+        color: var(--text-color-light);
+    }
 
-i:hover {
-    color: rgb(255, 0, 0);
-}
+    .logo-container {
+        display: flex;
+        justify-content: center;
+    }
 
-.mainTable .checked-row {
-    background-color: rgba(255, 217, 0, 0.637) !important;
-  }
+    .logo-star-container {
+        position: 25%;
+        background-image: var(--logo-star-bg-light);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 300px;
+        height: 150px;
+        animation: logo-star-container 5s ease-out infinite;
+    }
 
-  .footer {
-    background-color: #f2f2f2;
-    color: #333;
-    text-align: center;
-    padding: 10px;
-    bottom: 0;
-    width: 99%;
-    box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
-    position: fixed;
-  }
-  .footer-relative {
-    position: relative;
-  }
-  
-  .footer-text {
-    margin: 0;
-  }
-  .page-counter {
-    display: inline;
-    min-width: 100px;
-  }
+    .logo-wars-container {
+        background-image: var(--logo-wars-bg-light);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 300px;
+        height: 150px;
+        animation: logo-star-container 5s ease-out infinite;
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mainTable {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: var(--table-bg-light);
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    .mainTable tr:first-child {
+        background-color: var(--table-first-row-bg-light);
+    }
+
+    .mainTable tr {
+        background-color: var(--table-row-bg-light);
+    }
+
+    .mainTable tr:hover {
+        background-color: var(--table-row-hover-bg-light);
+    }
+
+    .mainTable td {
+        padding: 10px;
+        border: 1px solid var(--table-td-border-light);
+        color: var(--table-td-color-light);
+    }
+
+    .mainTable td:hover {
+        background-color: var(--table-td-hover-bg-light);
+    }
+
+    tr td:last-child {
+        min-width: 120px;
+    }
+
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--modal-bg-light);
+        padding: 20px;
+        border: 2px solid var(--modal-border-light);
+        z-index: 1000;
+        max-width: 80%;
+    }
+
+    .tableModal {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .tdModal {
+        max-width: 1000px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .modal button {
+        background-color: var(--modal-button-bg-light);
+        color: var(--modal-button-text-light);
+    }
+
+    .table-input {
+        width: 80%;
+        background-color: var(--table-input-bg-light);
+        color: var(--table-input-color-light);
+        border: 1px solid var(--table-input-border-light);
+    }
+
+    .loading-container {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loading-spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid #3498db;
+        width: 100px;
+        height: 100px;
+        animation: spin 1s linear infinite;
+        margin-top: 50px;
+    }
+
+    .loading-text {
+        font-size: 24px;
+        color: var(--loading-text-color-light);
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .hide-able-element {
+        display: none;
+    }
+
+    select {
+        background-color: var(--select-bg-light);
+        color: var(--select-color-light);
+        border: 1px solid var(--input-border-light);
+    }
+
+    input[type=checkbox] {
+        transform: var(--checkbox-transform-light);
+    }
+
+    .theme-toggle {
+        display: flex;
+    }
+
+    i {
+        margin: 5px;
+    }
+
+    i:hover {
+        color: blue;
+    }
+
+    #lightIcon {
+        color: grey;
+    }
+
+    .mainTable .checked-row {
+        background-color: rgba(255, 217, 0, 0.637) !important;
+    }
+
+    .footer {
+        background-color: var(--footer-bg-light);
+        color: var(--footer-color-light);
+        text-align: center;
+        padding: 10px;
+        bottom: 0;
+        width: 99%;
+        box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.1);
+        margin-top: 15px;
+        position: fixed;
+    }
+    .footer-relative {
+        position: relative;
+    }
+
+    .footer-text {
+        margin: 0;
+    }
+
+    .page-counter {
+        display: inline;
+        min-width: 100px;
+    }
+

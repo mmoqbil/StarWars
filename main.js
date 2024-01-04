@@ -513,27 +513,19 @@ searchByIdInput.classList.add("input-default");
 
 const initTheme = () => {
   const lightIcon = document.getElementById('lightIcon');
-  lightIcon.style.display  = 'none';
   const darkIcon = document.getElementById('darkIcon');
-  const mainStylesheet = document.getElementById('mainStylesheet');
-  const lightStylesheet = document.getElementById('lightStylesheet');
+  const themeToggle = document.getElementById('themeToggle'); 
+  lightIcon.style.display = 'none';
 
   themeToggle.addEventListener('click', function () {
-
-    if (mainStylesheet.getAttribute('href') === 'style.css') {
-      mainStylesheet.href = 'style-light.css';
-      lightStylesheet.href = 'style-light.css';  // Dodaj tę linię
-    } else {
-      mainStylesheet.href = 'style.css';
-      lightStylesheet.href = 'style.css';  // Dodaj tę linię
-    }
+    document.body.classList.toggle('light-mode'); // Dodaj lub usuń klasę light-mode z body
 
     lightIcon.style.display = lightIcon.style.display === 'none' ? 'inline' : 'none';
     darkIcon.style.display = darkIcon.style.display === 'none' ? 'inline' : 'none';
   });
 
   initUI();
-}
+};
 
 const initUI = () => {
   Object.keys(rowData).forEach((key) => {

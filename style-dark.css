@@ -1,0 +1,636 @@
+:root {
+  --cursor-url: url("images/sword-cursor.png");
+  --bg-dark: url('images/bg.jpg');
+  --font-family: 'Lato', sans-serif;
+  --text-color-dark: aliceblue;
+  --button-bg-dark: #333;
+  --button-text-dark: #fff;
+  --button-border-dark: #333;
+  --button-hover-bg-dark: #555;
+  --button-hover-text-dark: #3498db;
+  --main-button-bg-dark: #333;
+  --main-button-text-dark: #fff;
+  --main-button-hover-bg-dark: greenyellow;
+  --main-button-hover-text-dark: darkorange;
+  --even-button-hover-bg-dark: aquamarine;
+  --even-button-hover-text-dark: #b80505;
+  --plus-button-color-dark: greenyellow;
+  --minus-button-color-dark: rgb(139, 29, 29);
+  --disabled-button-bg-dark: #1f1f1f;
+  --disabled-button-color-dark: #2f2f2f;
+  --input-bg-dark: #333;
+  --input-border-dark: 1px solid #555;
+  --input-color-dark: #fff;
+  --logo-star-bg-dark: url('images/star.svg');
+  --logo-wars-bg-dark: url('images/wars.svg');
+  --table-bg-dark: #1f1f1f;
+  --table-first-row-bg-dark: rgb(196, 16, 16);
+  --table-row-bg-dark: #2f2f2f;
+  --table-row-hover-bg-dark: #3f3f3f;
+  --table-td-border-dark: 1px solid #555;
+  --table-td-color-dark: #fff;
+  --table-td-hover-bg-dark: #b80505;
+  --modal-bg-dark: black;
+  --modal-border-dark: 2px solid yellow;
+  --modal-button-bg-dark: red;
+  --modal-button-text-dark: yellow;
+  --table-input-bg-dark: #333;
+  --table-input-color-dark: #fff;
+  --loading-text-color-dark: #333;
+  --select-bg-dark: #333;
+  --select-color-dark: #fff;
+  --checkbox-transform-dark: scale(1.1);
+  --footer-bg-dark: #333;
+  --footer-color-dark: #fff;
+}
+
+  .light-mode {
+  --bg-light: url('images/bg-light.png');
+  --font-family: 'Lato', sans-serif;
+  --text-color-light: #333;
+  --button-bg-light: #fff;
+  --button-text-light: #333;
+  --button-border-light: #333;
+  --button-hover-bg-light: #555;
+  --button-hover-text-light: #fff;
+  --main-button-bg-light: #fff;
+  --main-button-text-light: #333;
+  --main-button-hover-bg-light: greenyellow;
+  --main-button-hover-text-light: darkorange;
+  --even-button-hover-bg-light: aquamarine;
+  --even-button-hover-text-light: #b80505;
+  --input-bg-light: #fff;
+  --input-border-light: #333;
+  --logo-star-bg-light: url('images/star.svg');
+  --logo-wars-bg-light: url('images/wars.svg');
+  --table-bg-light: #fff;
+  --table-first-row-bg-light: rgb(196, 16, 16);
+  --table-row-bg-light: #eee;
+  --table-row-hover-bg-light: #ccc;
+  --table-td-border-light: #333;
+  --table-td-color-light: #333;
+  --table-td-hover-bg-light: #b80505;
+  --modal-bg-light: #fff;
+  --modal-border-light: yellow;
+  --modal-button-bg-light: red;
+  --modal-button-text-light: yellow;
+  --table-input-bg-light: #fff;
+  --table-input-color-light: #333;
+  --loading-text-color-light: #333;
+  --select-bg-light: #fff;
+  --select-color-light: #333;
+  --checkbox-transform-light: scale(1.1);
+  --footer-bg-light: #f2f2f2;
+  --footer-color-light: #333;
+}
+
+
+html, body, body * {
+  cursor: var(--cursor-url), auto;
+}
+
+body {
+  background-image: var(--bg-dark);
+  background-size: cover;
+  background-position: center;
+  font-family: var(--font-family);
+  color: var(--text-color-dark);
+  transition: background-color 0.5s ease;
+}
+
+button {
+  background-color: var(--button-bg-dark);
+  color: var(--button-text-dark);
+  border: 1px solid var(--button-border-dark);
+  padding: 6px 11px; 
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.button-plus {
+  color: var(--plus-button-color-dark);
+  padding: 6px 12px;
+  margin: 2px;
+  font-size: 20px;
+}
+
+.button-minus {
+  color: var(--minus-button-color-dark);
+  padding: 6px 12px;
+  margin: 2px;
+  font-size: 20px;
+}
+
+.disabledButton {
+  background-color: var(--disabled-button-bg-dark);
+  color: var(--disabled-button-color-dark);
+}
+
+.main-button {
+  background-color: var(--main-button-bg-dark);
+  color: var(--main-button-text-dark);
+  padding: 12px 20px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  cursor: var(--cursor-url), auto;
+  background-color: var(--button-hover-bg-dark);
+  color: var(--button-hover-text-dark);
+}
+
+.main-button:hover {
+  background-color: var(--main-button-hover-bg-dark);
+  color: var(--main-button-hover-text-dark);
+  padding: 45px 58px;
+  transform: rotate(5deg);
+}
+
+.main-button:nth-child(even):hover {
+  background-color: var(--even-button-hover-bg-dark);
+  color: var(--even-button-hover-text-dark);
+  transform: rotate(-5deg);
+}
+
+.button-plus:hover {
+  background-color: green;
+  color: var(--plus-button-color-dark);
+  scale: 1.2;
+}
+
+.button-minus:hover {
+  background-color: red;
+  color: var(--minus-button-color-dark);
+  scale: 1.2;
+}
+
+.div-searches {
+  display: flex;
+  justify-content: space-around;
+  margin: 17px;
+}
+
+.input-default {
+  background-color: var(--input-bg-dark);
+  border: var(--input-border-dark);
+  color: var(--input-color-dark);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-star-container {
+  position: 25%;
+  background-image: var(--logo-star-bg-dark);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 150px;
+  animation: logo-star-container 5s ease-out infinite;
+}
+
+.logo-wars-container {
+  background-image: var(--logo-wars-bg-dark);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 150px;
+  animation: logo-star-container 5s ease-out infinite;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--table-bg-dark);
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.mainTable tr:first-child {
+  background-color: var(--table-first-row-bg-dark);
+}
+
+.mainTable tr {
+  background-color: var(--table-row-bg-dark);
+}
+
+.mainTable tr:hover {
+  background-color: var(--table-row-hover-bg-dark);
+}
+
+.mainTable td {
+  padding: 10px;
+  border: var(--table-td-border-dark);
+  color: var(--table-td-color-dark);
+}
+
+.mainTable td:hover {
+  background-color: var(--table-td-hover-bg-dark);
+}
+
+tr td:last-child {
+  min-width: 120px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--modal-bg-dark);
+  padding: 20px;
+  border: var(--modal-border-dark);
+  z-index: 1000;
+  max-width: 80%;
+}
+
+.tableModal {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tdModal {
+  max-width: 1000px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modal button {
+  background-color: var(--modal-button-bg-dark);
+  color: var(--modal-button-text-dark);
+}
+
+.table-input {
+  width: 80%;
+  background-color: var(--table-input-bg-dark);
+  color: var(--table-input-color-dark);
+  border: 1px solid var(--table-input-border-dark);
+}
+
+.loading-container {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+  margin-top: 50px;
+}
+
+.loading-text {
+  font-size: 24px;
+  color: #333;
+}
+
+.hide-able-element {
+  display: none;
+}
+
+select {
+  background-color: var(--select-bg-dark);
+  color: var(--select-color-dark);
+  border: var(--input-border-dark);
+}
+
+input[type=checkbox] {
+  transform: var(--checkbox-transform-dark);
+}
+
+.theme-toggle {
+  display: flex;
+}
+
+i:first-child {
+  color: #fcf3f3;
+}
+
+i {
+  margin: 5px;
+}
+
+i:hover {
+  color: blue;
+}
+
+.mainTable .checked-row {
+  background-color: rgba(255, 217, 0, 0.637) !important;
+}
+
+.footer {
+  background-color: var(--footer-bg-dark);
+  color: var(--footer-color-dark);
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  width: 99%;
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  position: fixed;
+}
+
+.footer-relative {
+  position: relative;
+}
+
+.footer-text {
+  margin: 0;
+}
+
+.page-counter {
+  display: inline;
+  min-width: 100px;
+}
+
+body.light-mode  {
+  background-image: var(--bg-light);
+  background-size: cover;
+  background-position: center;
+  font-family: var(--font-family);
+  color: var(--text-color-light);
+  transition: background-color 0.5s ease;
+}
+
+.light-mode button{
+  background-color: var(--button-bg-light);
+  color: var(--button-text-light);
+  border: 1px solid var(--button-border-light);
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.light-mode .button-plus {
+  color: greenyellow;
+  padding: 6px 12px;
+  margin: 2px;
+  font-size: 20px;
+}
+
+.light-mode .button-minus {
+  color: rgb(139, 29, 29);
+  padding: 6px 12px;
+  margin: 2px;
+  font-size: 20px;
+}
+
+.light-mode .disabledButton {
+  background-color: rgb(150, 138, 138);
+  color: #635d5d;
+}
+
+.light-mode .main-button {
+  background-color: var(--main-button-bg-light);
+  color: var(--main-button-text-light);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.light-mode button:hover {
+  cursor: var(--cursor-url), auto;
+  background-color: var(--button-hover-bg-light);
+  color: var(--button-hover-text-light);
+}
+
+.light-mode .main-button:hover {
+  background-color: var(--main-button-hover-bg-light);
+  color: var(--main-button-hover-text-light);
+  padding: 12px 20px;
+  transform: rotate(5deg);
+}
+
+.light-mode .main-button:nth-child(even):hover {
+  background-color: var(--even-button-hover-bg-light);
+  color: var(--even-button-hover-text-light);
+  transform: rotate(-5deg);
+}
+
+.light-mode .button-plus:hover {
+  background-color: green;
+  color: greenyellow;
+  scale: 1.2;
+}
+
+.light-mode .button-minus:hover {
+  background-color: red;
+  color: rgb(139, 29, 29);
+  scale: 1.2;
+}
+
+.light-mode .div-searches {
+  display: flex;
+  justify-content: space-around;
+  margin: 17px;
+}
+
+.light-mode .input-default {
+  background-color: var(--input-bg-light);
+  border: 1px solid var(--input-border-light);
+  color: var(--text-color-light);
+}
+
+.light-mode .logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.light-mode .logo-star-container {
+  position: 25%;
+  background-image: var(--logo-star-bg-light);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 150px;
+  animation: logo-star-container 5s ease-out infinite;
+}
+
+.light-mode .logo-wars-container {
+  background-image: var(--logo-wars-bg-light);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 150px;
+  animation: logo-star-container 5s ease-out infinite;
+}
+
+.light-mode .buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.light-mode .mainTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--table-bg-light);
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.light-mode .mainTable tr:first-child {
+  background-color: var(--table-first-row-bg-light);
+}
+
+.light-mode .mainTable tr {
+  background-color: var(--table-row-bg-light);
+}
+
+.light-mode .mainTable tr:hover {
+  background-color: var(--table-row-hover-bg-light);
+}
+
+.light-mode .mainTable td {
+  padding: 10px;
+  border: 1px solid var(--table-td-border-light);
+  color: var(--table-td-color-light);
+}
+
+.light-mode .mainTable td:hover {
+  background-color: var(--table-td-hover-bg-light);
+}
+
+.light-mode tr td:last-child{
+  min-width: 120px;
+}
+
+.light-mode .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--modal-bg-light);
+  padding: 20px;
+  border: 2px solid var(--modal-border-light);
+  z-index: 1000;
+  max-width: 80%;
+}
+
+.light-mode .tableModal {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.light-mode .tdModal {
+  max-width: 1000px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.light-mode .modal button {
+  background-color: var(--modal-button-bg-light);
+  color: var(--modal-button-text-light);
+}
+
+.light-mode .table-input {
+  width: 80%;
+  background-color: var(--table-input-bg-light);
+  color: var(--table-input-color-light);
+  border: 1px solid var(--table-input-border-light);
+}
+
+.light-mode .loading-container {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-mode .loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+  margin-top: 50px;
+}
+
+.light-mode .loading-text {
+  font-size: 24px;
+  color: var(--loading-text-color-light);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.light-mode .hide-able-element {
+  display: none;
+}
+
+.light-mode select {
+  background-color: var(--select-bg-light);
+  color: var(--select-color-light);
+  border: 1px solid var(--input-border-light);
+}
+
+.light-mode input[type=checkbox] {
+  transform: var(--checkbox-transform-light);
+}
+
+.light-mode .theme-toggle {
+  display: flex;
+}
+
+.light-mode i {
+  margin: 5px;
+}
+
+.light-mode i:hover {
+  color: rgb(255, 0, 0);
+}
+
+.light-mode .mainTable.checked-row{
+  background-color: rgba(255, 217, 0, 0.637) !important;
+}
+
+.light-mode .footer{
+  background-color: var(--footer-bg-light);
+  color: var(--footer-color-light);
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  width: 99%;
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  position: fixed;
+}
+.light-mode .footer-relative{
+  position: relative;
+}
+
+.light-mode .footer-text {
+  margin: 0;
+}
+
+.light-mode .page-counter{
+  display: inline;
+  min-width: 100px;
+}
+
