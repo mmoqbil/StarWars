@@ -327,7 +327,9 @@ i:first-child {
 }
 
 i {
-  margin: 5px;
+  position:absolute;
+  top: 15px;
+  right: 15px;
 }
 
 i:hover {
@@ -599,7 +601,9 @@ body.light-mode  {
 }
 
 .light-mode i {
-  margin: 5px;
+  position:absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .light-mode i:hover {
