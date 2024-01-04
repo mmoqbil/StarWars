@@ -119,7 +119,9 @@ const createTable = (data) => {
         const buttonPlus = createButton("+", () => showModal(props));
         const buttonMinus = createButton("-", () => table.removeChild(trValue));
         const rowCheckbox = document.createElement("input");
+        rowCheckbox.classList.add("input-default");
         rowCheckbox.type = "checkbox";
+        rowCheckbox.classList.add("input-default");
 
         buttonPlus.classList.add("button-plus");
         buttonMinus.classList.add("button-minus");
@@ -245,6 +247,7 @@ const createTableButtons = () => {
   };
   tableButtons.style.display = "flex";
   tableButtons.style.justifyContent = "space-between";
+  tableButtons.style.marginBottom = "15px";
   tableButtons.appendChild(buttonPrev);
   tableButtons.appendChild(tableInput);
   tableButtons.appendChild(buttonNext);
@@ -437,7 +440,8 @@ const initTable = (key) => {
   setTimeout(() => {
     loadingContainer.style.display = "none";
     content.classList.remove("hide-able-element");
-  }, 650);
+  }, 300);
+  
   console.log(rowData[key]);
 
   content.innerHTML = "";
@@ -455,12 +459,15 @@ const initTable = (key) => {
 
   searchByNameInput = createInput(
     key === "films" ? "Search by title" : "Search by name"
-  );
+  )
   const searchByNameDiv = createSearchDiv(
     key === "films" ? "Search by title" : "Search by name",
     searchByNameInput,
     createButton("Search", () => filterTableByName(searchByNameInput.value))
   );
+
+searchByNameInput.classList.add("input-default");
+searchByIdInput.classList.add("input-default");
 
   mainTable = createTable(buttonsObject);
   mainTable.classList.add("mainTable");
@@ -476,7 +483,7 @@ const initTable = (key) => {
   const deleteButton = createDeleteButton();
   content.appendChild(deleteButton);
 
-  document.addEventListener("change", function () {
+  document.addEventListener("change", () => {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     const atLeastOneChecked = Array.from(checkboxes).some(
       (checkbox) => checkbox.checked

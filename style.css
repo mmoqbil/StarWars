@@ -1,3 +1,5 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 html, body, body * {
     cursor: url("images/sword-cursor.png"), auto;
 }
@@ -7,7 +9,6 @@ body {
     background-position: center; 
     font-family: 'Lato', sans-serif;
     color :aliceblue;
-    cursor: url('images/sword-cursor.cur'), auto;
   }
 
   button {
@@ -25,11 +26,13 @@ body {
     color: greenyellow;
     padding: 6px 12px;
     margin: 2px;
+    font-size: 20px;
   }
   .button-minus {
     color:rgb(139, 29, 29);
     padding: 6px 12px;
     margin: 2px;
+    font-size: 20px;
   }
   .disabledButton {
     background-color: #1f1f1f;
@@ -45,32 +48,33 @@ body {
     font-size: 16px; 
     transition: all 0.3s; 
   }
-
+ button:hover {
+    cursor: url('images/sword-cursor.png'), auto;
+    background-color: #555;
+    color:#3498db;
+ }
   .main-button:hover {
     background-color: greenyellow; 
+    color:darkorange;
     padding: 45px 58px;
     transform: rotate(5deg);
   }
   .main-button:nth-child(even):hover {
+    background-color: aquamarine;
+    color:#b80505;
     transform: rotate(-5deg);
   }
   
   .button-plus:hover {
     background-color: green; 
+    color:greenyellow;
     scale: 1.2;
   }
 
   .button-minus:hover {
     background-color: red; 
+    color:rgb(139, 29, 29);
     scale: 1.2;
-  }
-  
-
-  input[type="text"] {
-    background-color: #333; 
-    color: #fff; 
-    padding: 8px; 
-    border: 1px solid #555; 
   }
 
   .div-searches {
@@ -78,6 +82,14 @@ body {
     justify-content:space-around;
     margin: 17px;
   }
+
+
+  .input-default {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+  }
+
   .logo-container {
     display: flex;
     justify-content:center;
@@ -189,6 +201,9 @@ body {
 
   .table-input {
     width:80%;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
   }
 
   .loading-container {
@@ -220,4 +235,29 @@ body {
 
   .hide-able-element {
     display :none;
+  }
+
+  select {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+  }
+
+  input[type=checkbox] {
+    transform: scale(1.1);
+  }
+  
+  .theme-container {
+    display: flex;
+    justify-content: right;
+  }
+
+  i {
+    margin: 5px;
+  }
+  i:first-child {
+    color:white;
+  }
+  i:hover {
+    color: blue;
   }
