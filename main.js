@@ -399,7 +399,7 @@ const showModal = (data) => {
 
 const filterTableByName = (nameString) => {
   const rows = mainTable.querySelectorAll("tr");
-
+  let findedRows = 0;
   rows.forEach((row, index) => {
     if (index === 0) {
       return;
@@ -412,11 +412,16 @@ const filterTableByName = (nameString) => {
 
       if (nameText.includes(nameString.toLowerCase())) {
         row.style.display = "";
+        findedRows++;
       } else {
         row.style.display = "none";
       }
     }
   });
+  if(findedRows === 0) {
+    alert("There is no such findings");
+    rows[1].style.display = "";
+  }
 };
 
 const filterTableById = (searchId) => {

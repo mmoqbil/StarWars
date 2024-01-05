@@ -251,6 +251,10 @@ tr td:last-child {
   margin-bottom: 15px;
   }
 
+.table-buttons > button {
+  margin: 3px;
+}
+
 .table-input {
   width: 80%;
   background-color: var(--table-input-bg-dark);
@@ -342,7 +346,7 @@ i:hover {
 
 .page-counter {
   vertical-align: middle;
-  margin-top: 5px;
+  margin-top: 8px;
   min-width: 100px;
 }
 
@@ -402,6 +406,9 @@ i:hover {
   i,
   .light-mode i {
     font-size: 30px;
+  }
+  .footer-text, .light-mode .footer-text {
+    font-size: 13px;
   }
 }
 
@@ -481,6 +488,9 @@ i:hover {
   .my-profile-image {
     width: 70px;
     height: 70px;
+  }
+  .footer-text, .light-mode .footer-text {
+    font-size: 11px;
   }
 }
 @media screen and (max-width: 500px) {
