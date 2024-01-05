@@ -264,6 +264,7 @@ const createTableButtons = () => {
   tableButtons.appendChild(buttonNext);
   tableButtons.appendChild(pageCounterDiv);
   tableButtons.appendChild(selectElement);
+  tableInput.type = `number`;
   tableInput.classList.add(`table-input`);
 
   tableInput.addEventListener(`input`, (event) => {
