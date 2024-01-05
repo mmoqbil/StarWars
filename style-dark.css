@@ -155,7 +155,7 @@ button:hover {
   background-repeat: no-repeat;
   width: 300px;
   height: 150px;
-  animation: logo-star-container 5s ease-out infinite;
+  animation: logo-star-container 5s ease-out 1;
 }
 
 .logo-wars-container {
@@ -164,7 +164,7 @@ button:hover {
   background-repeat: no-repeat;
   width: 300px;
   height: 150px;
-  animation: logo-star-container 5s ease-out infinite;
+  animation: logo-star-container 5s ease-out 1;
 }
 
 .buttons-container {

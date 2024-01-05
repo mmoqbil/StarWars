@@ -446,13 +446,16 @@ const initLoading = () => {
   }, 300);
 }
 
-const initTable = (key) => {
-  initLoading();
-
+const changeFooterDisplay = () => {
   const footer = document.getElementById("footer");
   footer.classList.add("footer-relative");
+}
 
+const initTable = (key) => {
   console.log(rowData[key]);
+
+  changeFooterDisplay();
+  initLoading();
 
   content.innerHTML = "";
   const divSearches = document.createElement("div");
