@@ -195,6 +195,7 @@ button:hover {
 
 .mainTable td {
   padding: 10px;
+  text-align: center;
   border: var(--table-td-border-dark);
   color: var(--table-td-color-dark);
 }

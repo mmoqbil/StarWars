@@ -179,6 +179,7 @@
   
   .light-mode .mainTable td {
     padding: 10px;
+    text-align: center;
     border: 1px solid var(--table-td-border-light);
     color: var(--table-td-color-light);
   }

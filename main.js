@@ -47,33 +47,33 @@ const createTable = (data) => {
       trKey.style.border = "1px solid";
       table.appendChild(trKey);
 
-      const tdKeyId = document.createElement("td");
-      tdKeyId.innerHTML = "ID";
-      tdKeyId.style.border = "1px solid";
-      trKey.appendChild(tdKeyId);
+      const thKeyId = document.createElement("th");
+      thKeyId.innerHTML = "ID";
+      thKeyId.style.border = "1px solid";
+      trKey.appendChild(thKeyId);
 
       for (const propKey in props) {
         if (
           displayKeyIndex % 2 === 0 &&
           displayKeyIndex < maxDisplayedKeyIndex
         ) {
-          const tdKey = document.createElement("td");
-          tdKey.innerHTML = propKey.toUpperCase();
-          tdKey.style.border = "1px solid";
-          trKey.appendChild(tdKey);
+          const thKey = document.createElement("th");
+          thKey.innerHTML = propKey.toUpperCase();
+          thKey.style.border = "1px solid";
+          trKey.appendChild(thKey);
         }
         displayKeyIndex++;
       }
 
-      const tdKeyCreated = document.createElement("td");
-      tdKeyCreated.innerHTML = "CREATED AT";
-      tdKeyCreated.style.border = "1px solid";
-      trKey.appendChild(tdKeyCreated);
+      const thKeyCreated = document.createElement("th");
+      thKeyCreated.innerHTML = "CREATED AT";
+      thKeyCreated.style.border = "1px solid";
+      trKey.appendChild(thKeyCreated);
 
-      const tdKeyActions = document.createElement("td");
-      tdKeyActions.innerHTML = "ACTIONS";
-      tdKeyActions.style.border = "1px solid";
-      trKey.appendChild(tdKeyActions);
+      const thKeyActions = document.createElement("th");
+      thKeyActions.innerHTML = "ACTIONS";
+      thKeyActions.style.border = "1px solid";
+      trKey.appendChild(thKeyActions);
 
       areKeysDisplayed = true;
     }
@@ -118,8 +118,8 @@ const createTable = (data) => {
 
       if (displayKeyIndex === 5) {
         const buttonPlus = createButton("+", () => showModal(props));
-        const buttonMinus = createButton("-", () =>{
-          table.removeChild(trValue)
+        const buttonMinus = createButton("-", () => {
+          table.removeChild(trValue);
           updateDeleteButton(deleteButton);
         });
         const rowCheckbox = document.createElement("input");
@@ -448,12 +448,12 @@ const initLoading = () => {
     loadingContainer.style.display = "none";
     content.classList.remove("hide-able-element");
   }, 300);
-}
+};
 
 const changeFooterDisplay = () => {
   const footer = document.getElementById("footer");
   footer.classList.add("footer-relative");
-}
+};
 
 const initTable = (key) => {
   console.log(rowData[key]);
