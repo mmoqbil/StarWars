@@ -419,20 +419,24 @@ const filterTableById = (searchId) => {
     if (index === 0) {
       return;
     }
-
-    const idCell = row.querySelector("td:first-child");
-    if (idCell) {
-      const rowId = parseInt(idCell.innerHTML);
-      if (rowId === searchId) {
-        row.style.display = "";
-      } else {
-        row.style.display = "none";
+    if (searchId < rows.length && searchId > 0) {
+      const idCell = row.querySelector("td:first-child");
+      if (idCell) {
+        const rowId = parseInt(idCell.innerHTML);
+        if (rowId === searchId) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
       }
+    } else {
+      alert("Liczba nie jest z zakresu podanego w placeholderze!");
+      searchId = 1;
     }
   });
 };
 
-const initTable = (key) => {
+const initLoading = () => {
   const loadingContainer = document.getElementById("loadingContainer");
   content.classList.add("hide-able-element");
   loadingContainer.style.display = "flex";
@@ -440,6 +444,10 @@ const initTable = (key) => {
     loadingContainer.style.display = "none";
     content.classList.remove("hide-able-element");
   }, 300);
+}
+
+const initTable = (key) => {
+  initLoading();
 
   const footer = document.getElementById("footer");
   footer.classList.add("footer-relative");
@@ -529,14 +537,13 @@ const initTheme = () => {
   lightIcon.style.display = "none";
 
   themeToggle.addEventListener("click", function () {
-    document.body.classList.toggle("light-mode"); 
+    document.body.classList.toggle("light-mode");
 
     lightIcon.style.display =
       lightIcon.style.display === "none" ? "inline" : "none";
     darkIcon.style.display =
       darkIcon.style.display === "none" ? "inline" : "none";
   });
-
 
   initUI();
   setSwordSound();
