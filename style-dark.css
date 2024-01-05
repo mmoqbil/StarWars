@@ -50,6 +50,7 @@
 
 html, body, body * {
   cursor: var(--cursor-url), auto;
+  margin: 0;
 }
 
 body {
@@ -158,6 +159,7 @@ button:hover {
   background-repeat: no-repeat;
   width: 300px;
   height: 150px;
+  margin-top: 10px;
   animation: logo-star-container 5s ease-out 1;
 }
 
@@ -167,6 +169,7 @@ button:hover {
   background-repeat: no-repeat;
   width: 300px;
   height: 150px;
+  margin-top: 10px;
   animation: logo-star-container 5s ease-out 1;
 }
 
@@ -307,6 +310,7 @@ i:hover {
   color: var(--footer-color-dark);
   text-align: center;
   padding: 10px;
+  margin: 0;
   bottom: 0;
   width: 99%;
   box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.1);
@@ -356,7 +360,6 @@ i:hover {
 @media screen and (max-width: 670px) {
   .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
     width:180px;
-    margin: 0px;
   }
   i, .light-mode i {
     font-size: 25px;
@@ -372,6 +375,9 @@ i:hover {
   .main-button, .light-mode .main-button {
     padding: 4px 10px; 
     margin: 0px;
+  }
+  .main-button:hover, .light-mode .main-button:hover {
+    padding: 4px 10px;
   }
   .table-input, .light-mode .table-input {
     width: 50%;
