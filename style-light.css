@@ -52,7 +52,6 @@ body.light-mode {
   background-color: var(--button-bg-light);
   color: var(--button-text-light);
   border: 1px solid var(--button-border-light);
-  cursor: pointer;
   font-size: 16px;
   transition: all 0.3s;
 }
@@ -81,7 +80,6 @@ body.light-mode {
   color: var(--main-button-text-light);
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
   transition: all 0.3s;
 }
@@ -216,6 +214,7 @@ body.light-mode {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  border: #383333 1px solid;
 }
 
 .light-mode .modal button {

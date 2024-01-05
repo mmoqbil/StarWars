@@ -1,336 +1,157 @@
+@import url("style-dark.css");
+@import url("style-light.css");
 
-
-  :root {
-    --cursor-url: url("images/sword-cursor.png");
-    --bg-dark: url('images/bg.jpg');
-    --text-color-dark: aliceblue;
-    --button-bg-dark: #333;
-    --button-text-dark: #fff;
-    --button-border-dark: #333;
-    --button-hover-bg-dark: #555;
-    --button-hover-text-dark: #3498db;
-    --main-button-bg-dark: #333;
-    --main-button-text-dark: #fff;
-    --main-button-hover-bg-dark: greenyellow;
-    --main-button-hover-text-dark: darkorange;
-    --even-button-hover-bg-dark: aquamarine;
-    --even-button-hover-text-dark: #b80505;
-    --plus-button-color-dark: greenyellow;
-    --minus-button-color-dark: rgb(139, 29, 29);
-    --disabled-button-bg-dark: #1f1f1f;
-    --disabled-button-color-dark: #2f2f2f;
-    --input-bg-dark: #333;
-    --input-border-dark: 1px solid #555;
-    --input-color-dark: #fff;
-    --logo-star-bg-dark: url('images/star.svg');
-    --logo-wars-bg-dark: url('images/wars.svg');
-    --table-bg-dark: #1f1f1f;
-    --table-first-row-bg-dark: rgb(196, 16, 16);
-    --table-row-bg-dark: #2f2f2f;
-    --table-row-hover-bg-dark: #3f3f3f;
-    --table-td-border-dark: 1px solid #555;
-    --table-td-color-dark: #fff;
-    --table-td-hover-bg-dark: #b80505;
-    --modal-bg-dark: black;
-    --modal-border-dark: 2px solid yellow;
-    --modal-button-bg-dark: red;
-    --modal-button-text-dark: yellow;
-    --table-input-bg-dark: #333;
-    --table-input-color-dark: #fff;
-    --loading-text-color-dark: #333;
-    --select-bg-dark: #333;
-    --select-color-dark: #fff;
-    --checkbox-transform-dark: scale(1.1);
-    --footer-bg-dark: #333;
-    --footer-color-dark: #fff;
+@media screen and (max-width: 800px) and (min-width: 755px) {
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 280px;
   }
-
-
-  html, body, body * {
-    cursor: var(--cursor-url), auto;
-  }
-
-  body {
-    background-image: var(--bg-dark);
-    background-size: cover;
-    background-position: center;
-    font-family: var(--font-family);
-    color: var(--text-color-dark);
-    transition: background-color 0.5s ease;
-  }
-
-  button {
-    background-color: var(--button-bg-dark);
-    color: var(--button-text-dark);
-    border: 1px solid var(--button-border-dark);
-    padding: 6px 11px; 
-    border-radius: 5px; 
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s;
-  }
-
-  .button-plus {
-    color: var(--plus-button-color-dark);
-    padding: 6px 12px;
-    margin: 2px;
-    font-size: 20px;
-  }
-
-  .button-minus {
-    color: var(--minus-button-color-dark);
-    padding: 6px 12px;
-    margin: 2px;
-    font-size: 20px;
-  }
-
-  .disabledButton {
-    background-color: var(--disabled-button-bg-dark);
-    color: var(--disabled-button-color-dark);
-  }
-
-  .main-button {
-    background-color: var(--main-button-bg-dark);
-    color: var(--main-button-text-dark);
-    padding: 12px 20px; 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s;
-  }
-
-  button:hover {
-    cursor: var(--cursor-url), auto;
-    background-color: var(--button-hover-bg-dark);
-    color: var(--button-hover-text-dark);
-  }
-
-  .main-button:hover {
-    background-color: var(--main-button-hover-bg-dark);
-    color: var(--main-button-hover-text-dark);
-    padding: 45px 58px;
-    transform: rotate(5deg);
-  }
-
-  .main-button:nth-child(even):hover {
-    background-color: var(--even-button-hover-bg-dark);
-    color: var(--even-button-hover-text-dark);
-    transform: rotate(-5deg);
-  }
-
-  .button-plus:hover {
-    background-color: green;
-    color: var(--plus-button-color-dark);
-    scale: 1.2;
-  }
-
-  .button-minus:hover {
-    background-color: red;
-    color: var(--minus-button-color-dark);
-    scale: 1.2;
-  }
-
-  .div-searches {
-    display: flex;
-    justify-content: space-around;
-    margin: 17px;
-  }
-
-  .input-default {
-    background-color: var(--input-bg-dark);
-    border: var(--input-border-dark);
-    color: var(--input-color-dark);
-  }
-
-  .logo-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .logo-star-container {
-    position: 25%;
-    background-image: var(--logo-star-bg-dark);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 300px;
-    height: 150px;
-    animation: logo-star-container 5s ease-out infinite;
-  }
-
-  .logo-wars-container {
-    background-image: var(--logo-wars-bg-dark);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 300px;
-    height: 150px;
-    animation: logo-star-container 5s ease-out infinite;
-  }
-
-  .buttons-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .mainTable {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--table-bg-dark);
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-
-  .mainTable tr:first-child {
-    background-color: var(--table-first-row-bg-dark);
-  }
-
-  .mainTable tr {
-    background-color: var(--table-row-bg-dark);
-  }
-
-  .mainTable tr:hover {
-    background-color: var(--table-row-hover-bg-dark);
-  }
-
-  .mainTable td {
-    padding: 10px;
-    border: var(--table-td-border-dark);
-    color: var(--table-td-color-dark);
-  }
-
-  .mainTable td:hover {
-    background-color: var(--table-td-hover-bg-dark);
-  }
-
-  tr td:last-child {
-    min-width: 120px;
-  }
-
-  .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--modal-bg-dark);
-    padding: 20px;
-    border: var(--modal-border-dark);
-    z-index: 1000;
-    max-width: 80%;
-  }
-
-  .tableModal {
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  .tdModal {
-    max-width: 1000px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .modal button {
-    background-color: var(--modal-button-bg-dark);
-    color: var(--modal-button-text-dark);
-  }
-
-  .table-input {
-    width: 80%;
-    background-color: var(--table-input-bg-dark);
-    color: var(--table-input-color-dark);
-    border: 1px solid var(--table-input-border-dark);
-  }
-
-  .loading-container {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .loading-spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    border-top: 4px solid #3498db;
-    width: 100px;
-    height: 100px;
-    animation: spin 1s linear infinite;
-    margin-top: 50px;
-  }
-
-  .loading-text {
-    font-size: 24px;
-    color: #333;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  .hide-able-element {
-    display: none;
-  }
-
-  select {
-    background-color: var(--select-bg-dark);
-    color: var(--select-color-dark);
-    border: var(--input-border-dark);
-  }
-
-  input[type=checkbox] {
-    transform: var(--checkbox-transform-dark);
-  }
-
-  .theme-toggle {
-    display: flex;
-  }
-
-  i:first-child {
-    color: #fcf3f3;
-  }
-
-  i {
+  .input-default,
+  .light-mode .input-default {
+    width: 40%;
     margin: 5px;
   }
+}
 
-  i:hover {
-    color: blue;
+@media screen and (max-width: 755px) and (min-width: 670px) {
+  .input-default,
+  .light-mode .input-default {
+    width: 30%;
+    margin: 5px;
+  }
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 230px;
   }
 
-  #lightIcon {
-    color: grey;
+  i,
+  .light-mode i {
+    font-size: 30px;
+  }
+  .footer-text,
+  .light-mode .footer-text {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 180px;
+  }
+  i,
+  .light-mode i {
+    font-size: 25px;
+  }
+  .input-default,
+  .light-mode .input-default {
+    width: default;
+  }
+  .div-searches,
+  .light-mode .div-searches {
+    display: block;
+  }
+  .search-by-div {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+  }
+  .main-button,
+  .light-mode .main-button {
+    padding: 4px 10px;
+    margin: 0px;
+  }
+  .main-button:hover,
+  .light-mode .main-button:hover {
+    padding: 4px 10px;
   }
 
-  .mainTable .checked-row {
-    background-color: rgba(255, 217, 0, 0.637) !important;
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+  }
+  .mainTable td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+  }
+  tr:nth-of-type(2n) {
+    background-color: rgb(70, 36, 36);
+  }
+  .light-mode tr:nth-of-type(2n) {
+    background-color: rgb(207, 182, 182);
   }
 
-  .footer {
-    background-color: var(--footer-bg-dark);
-    color: var(--footer-color-dark);
-    text-align: center;
-    padding: 10px;
-    bottom: 0;
-    width: 99%;
-    box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
-    position: fixed;
+  .tdModal,
+  .light-mode .tdModal {
+    max-width: 200px;
+    font-size: 12px;
+  }
+  .td-buttons {
+    display: block;
+  }
+  .td-buttons input[type="checkbox"] {
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .td-buttons button {
+    vertical-align: middle;
+    margin-right: 5px;
   }
 
-  .footer-relative {
-    position: relative;
+  .about-me-modal {
+    font-size: 13px;
   }
-
-  .footer-text {
-    margin: 0;
+  .my-profile-image {
+    width: 70px;
+    height: 70px;
   }
-
-  .page-counter {
-    text-align: center;
-    display: inline;
-    min-width: 100px;
+  .footer-text,
+  .light-mode .footer-text {
+    font-size: 11px;
   }
+}
+@media screen and (max-width: 500px) {
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 120px;
+  }
+  .main-button,
+  .light-mode .main-button {
+    padding: 2px 7px;
+    font-size: 10px;
+  }
+  i,
+  .light-mode i {
+    font-size: 10px;
+  }
+}
 
+@media screen and (max-width: 300px) {
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 70px;
+  }
+  .main-button,
+  .light-mode .main-button {
+    padding: 1px 5px;
+    font-size: 7px;
+  }
+  i,
+  .light-mode i {
+    font-size: 9px;
+  }
+}

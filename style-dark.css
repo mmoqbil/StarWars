@@ -1,5 +1,3 @@
-@import url("style-light.css");
-
 :root {
   --cursor-url: url("images/sword-cursor.png");
   --bg-dark: url("images/bg.jpg");
@@ -32,7 +30,7 @@
   --table-td-border-dark: 1px solid #555;
   --table-td-color-dark: #fff;
   --table-td-hover-bg-dark: #b80505;
-  --modal-bg-dark: black;
+  --modal-bg-dark: #3f3f3f;;
   --modal-border-dark: 2px solid yellow;
   --modal-button-bg-dark: red;
   --modal-button-text-dark: yellow;
@@ -238,6 +236,7 @@ tr td:last-child {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  border: #fcf3f3 1px solid;
 }
 
 .modal button {
@@ -249,7 +248,8 @@ tr td:last-child {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
-  }
+  margin-top: 15px;
+}
 
 .table-buttons > button {
   margin: 3px;
@@ -373,158 +373,8 @@ i:hover {
   top: 10px;
   right: 10px;
   font-size: 20px;
-  cursor: pointer;
 }
 
-@media screen and (max-width: 800px) and (min-width: 755px) {
-  .logo-star-container,
-  .logo-wars-container,
-  .light-mode .logo-star-container,
-  .light-mode .logo-wars-container {
-    width: 280px;
-  }
-  .input-default,
-  .light-mode .input-default {
-    width: 40%;
-    margin: 5px;
-  }
-}
-
-@media screen and (max-width: 755px) and (min-width: 670px) {
-  .input-default,
-  .light-mode .input-default {
-    width: 30%;
-    margin: 5px;
-  }
-  .logo-star-container,
-  .logo-wars-container,
-  .light-mode .logo-star-container,
-  .light-mode .logo-wars-container {
-    width: 230px;
-  }
-
-  i,
-  .light-mode i {
-    font-size: 30px;
-  }
-  .footer-text, .light-mode .footer-text {
-    font-size: 13px;
-  }
-}
-
-@media screen and (max-width: 670px) {
-  .logo-star-container,
-  .logo-wars-container,
-  .light-mode .logo-star-container,
-  .light-mode .logo-wars-container {
-    width: 180px;
-  }
-  i,
-  .light-mode i {
-    font-size: 25px;
-  }
-  .input-default,
-  .light-mode .input-default {
-    width: default;
-  }
-  .div-searches,
-  .light-mode .div-searches {
-    display: block;
-  }
-  .search-by-div {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-  }
-  .main-button,
-  .light-mode .main-button {
-    padding: 4px 10px;
-    margin: 0px;
-  }
-  .main-button:hover,
-  .light-mode .main-button:hover {
-    padding: 4px 10px;
-  }
-
-  th {
-    display: none;
-  }
-  td {
-    display: block;
-  }
-  .mainTable td::before {
-    content: attr(data-cell) ": ";
-    font-weight: 700;
-  }
-  tr:nth-of-type(2n) {
-    background-color: rgb(70, 36, 36);
-  }
-  .light-mode tr:nth-of-type(2n) {
-    background-color: rgb(207, 182, 182);
-  }
-
-  .tdModal,
-  .light-mode .tdModal {
-    max-width: 200px;
-    font-size: 12px;
-  }
-  .td-buttons {
-    display: block;
-  }
-  .td-buttons input[type="checkbox"] {
-    width: 13px;
-    height: 13px;
-    vertical-align: middle;
-    margin-right: 5px;
-  }
-  .td-buttons button {
-    vertical-align: middle;
-    margin-right: 5px;
-  }
-
-  .about-me-modal {
-    font-size: 13px;
-  }
-  .my-profile-image {
-    width: 70px;
-    height: 70px;
-  }
-  .footer-text, .light-mode .footer-text {
-    font-size: 11px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .logo-star-container,
-  .logo-wars-container,
-  .light-mode .logo-star-container,
-  .light-mode .logo-wars-container {
-    width: 120px;
-  }
-  .main-button,
-  .light-mode .main-button {
-    padding: 2px 7px;
-    font-size: 10px;
-  }
-  i,
-  .light-mode i {
-    font-size: 10px;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .logo-star-container,
-  .logo-wars-container,
-  .light-mode .logo-star-container,
-  .light-mode .logo-wars-container {
-    width: 70px;
-  }
-  .main-button,
-  .light-mode .main-button {
-    padding: 1px 5px;
-    font-size: 7px;
-  }
-  i,
-  .light-mode i {
-    font-size: 7px;
-  }
+.left-arrow {
+  transform: scaleX(-1);
 }
