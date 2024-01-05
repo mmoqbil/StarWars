@@ -216,7 +216,7 @@ const createTableButtons = () => {
         buttonPrev.disabled = false;
         buttonPrev.classList.remove("disabledButton");
       }
-      if (parseInt(tableInput.value) === 1){
+      if (parseInt(tableInput.value) === 1) {
         buttonPrev.disabled = true;
         buttonPrev.classList.add("disabledButton");
       }
@@ -259,7 +259,7 @@ const createTableButtons = () => {
     const inputValue = parseInt(event.target.value);
     const maxPages = calculateMaxPages(selectElement.value);
     const selectedValue = parseInt(selectElement.value);
-    if(inputValue !== maxPages) {
+    if (inputValue !== maxPages) {
       buttonNext.disabled = false;
       buttonNext.classList.remove("disabledButton");
     }
@@ -267,12 +267,12 @@ const createTableButtons = () => {
       buttonPrev.disabled = true;
       buttonPrev.classList.add("disabledButton");
     }
-    if(inputValue === maxPages) {
+    if (inputValue === maxPages) {
       buttonNext.disabled = true;
       buttonNext.classList.add("disabledButton");
-    } 
-    if(inputValue !== 1) {
-      buttonPrev.disabled=false;
+    }
+    if (inputValue !== 1) {
+      buttonPrev.disabled = false;
       buttonPrev.classList.remove("disabledButton");
     }
     if (inputValue < 1) {
@@ -292,7 +292,7 @@ const createTableButtons = () => {
     if (event.key === "Enter") {
       const inputValue = parseInt(tableInput.value);
       const selectedValue = parseInt(selectElement.value);
-      if(inputValue !== calculateMaxPages(selectedValue)) {
+      if (inputValue !== calculateMaxPages(selectedValue)) {
         buttonNext.disabled = false;
         buttonNext.classList.remove("disabledButton");
       }
@@ -383,7 +383,7 @@ const showModal = (data) => {
       tableModal.appendChild(trModal);
     }
 
-    buttonX.addEventListener("click", function () {
+    buttonX.addEventListener("click", () => {
       isModalOpen = false;
       content.removeChild(modal);
     });
@@ -433,7 +433,6 @@ const filterTableById = (searchId) => {
 };
 
 const initTable = (key) => {
-
   const loadingContainer = document.getElementById("loadingContainer");
   content.classList.add("hide-able-element");
   loadingContainer.style.display = "flex";
@@ -462,19 +461,19 @@ const initTable = (key) => {
 
   searchByNameInput = createInput(
     key === "films" ? "Search by title" : "Search by name"
-  )
+  );
   const searchByNameDiv = createSearchDiv(
     key === "films" ? "Search by title" : "Search by name",
     searchByNameInput,
     createButton("Search", () => filterTableByName(searchByNameInput.value))
   );
 
-searchByNameInput.classList.add("input-default");
-searchByIdInput.classList.add("input-default");
+  searchByNameInput.classList.add("input-default");
+  searchByIdInput.classList.add("input-default");
 
   mainTable = createTable(buttonsObject);
   mainTable.classList.add("mainTable");
-  divSearches.classList.add("div-searches")
+  divSearches.classList.add("div-searches");
   divSearches.appendChild(searchByIdDiv);
   divSearches.appendChild(searchByNameDiv);
   content.appendChild(divSearches);
@@ -483,7 +482,7 @@ searchByIdInput.classList.add("input-default");
   const tableButtons = createTableButtons();
   content.appendChild(tableButtons);
 
-  const deleteButtonDiv = document.createElement("div")
+  const deleteButtonDiv = document.createElement("div");
   const deleteButton = createDeleteButton();
   deleteButtonDiv.appendChild(deleteButton);
   content.appendChild(deleteButtonDiv);
@@ -497,7 +496,7 @@ searchByIdInput.classList.add("input-default");
 
     checkboxes.forEach((checkbox) => {
       const checkedRow = checkbox.closest("tr");
-  
+
       if (checkbox.checked) {
         if (checkedRow) {
           checkedRow.classList.add("checked-row");
@@ -511,20 +510,36 @@ searchByIdInput.classList.add("input-default");
   });
 };
 
+const setSwordSound = () => {
+  const buttons = document.querySelectorAll(".main-button");
+  const swordSound = document.getElementById("swordSound");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      swordSound.currentTime = 0;
+      swordSound.play();
+    });
+  });
+};
+
 const initTheme = () => {
-  const lightIcon = document.getElementById('lightIcon');
-  const darkIcon = document.getElementById('darkIcon');
-  const themeToggle = document.getElementById('themeToggle'); 
-  lightIcon.style.display = 'none';
+  const lightIcon = document.getElementById("lightIcon");
+  const darkIcon = document.getElementById("darkIcon");
+  const themeToggle = document.getElementById("themeToggle");
+  lightIcon.style.display = "none";
 
-  themeToggle.addEventListener('click', function () {
-    document.body.classList.toggle('light-mode'); // Dodaj lub usuń klasę light-mode z body
+  themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("light-mode"); 
 
-    lightIcon.style.display = lightIcon.style.display === 'none' ? 'inline' : 'none';
-    darkIcon.style.display = darkIcon.style.display === 'none' ? 'inline' : 'none';
+    lightIcon.style.display =
+      lightIcon.style.display === "none" ? "inline" : "none";
+    darkIcon.style.display =
+      darkIcon.style.display === "none" ? "inline" : "none";
   });
 
+
   initUI();
+  setSwordSound();
 };
 
 const initUI = () => {
