@@ -41,6 +41,7 @@
 body.light-mode {
   background-image: var(--bg-light);
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   font-family: var(--font-family);
   color: var(--text-color-light);

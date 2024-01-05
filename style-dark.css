@@ -287,11 +287,8 @@ input[type=checkbox] {
   display: flex;
 }
 
-i:first-child {
-  color: #fcf3f3;
-}
-
 i {
+  color: #fcf3f3;
   position:absolute;
   top: 15px;
   right: 15px;
@@ -352,7 +349,7 @@ i:hover {
     width: 50%;
   }
   i, .light-mode i {
-    font-size: 20px;
+    font-size: 30px;
   }
 }
 
@@ -362,10 +359,15 @@ i:hover {
     margin: 0px;
   }
   i, .light-mode i {
-    font-size: 15px;
+    font-size: 25px;
   }
   .div-searches, .light-mode .div-searches{
     display:block;
+  }
+  .search-by-div {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
   }
   .main-button, .light-mode .main-button {
     padding: 4px 10px; 
@@ -390,9 +392,7 @@ i:hover {
   .light-mode tr:nth-of-type(2n) {
     background-color: rgb(207, 182, 182);
   }
-  .tableModal, .light-mode .tableModal. {
-    width: 90%;
-  }
+ 
   .tdModal, .light-mode .tdModal {
     max-width: 200px;
     font-size: 12px;
@@ -407,11 +407,6 @@ i:hover {
     font-size: 10px;
   }
   i, .light-mode i {
-    font-size: 10px;
-  }
-  .search-by-div {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
+    font-size: 20px;
   }
 }
