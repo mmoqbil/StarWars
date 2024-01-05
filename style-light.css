@@ -314,13 +314,9 @@
     20% {
       opacity: 1;
     }
-    89% {
+    100% {
       opacity: 1;
       transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: translateZ(-1000em);
     }
   }    
 

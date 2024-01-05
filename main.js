@@ -6,6 +6,7 @@ const buttons = document.getElementById("buttons");
 let mainTable;
 let searchByIdInput;
 let searchByNameInput;
+let deleteButton;
 let isModalOpen = false;
 
 const createButton = (label, onClick) => {
@@ -117,7 +118,10 @@ const createTable = (data) => {
 
       if (displayKeyIndex === 5) {
         const buttonPlus = createButton("+", () => showModal(props));
-        const buttonMinus = createButton("-", () => table.removeChild(trValue));
+        const buttonMinus = createButton("-", () =>{
+          table.removeChild(trValue)
+          updateDeleteButton(deleteButton);
+        });
         const rowCheckbox = document.createElement("input");
         rowCheckbox.classList.add("input-default");
         rowCheckbox.type = "checkbox";
@@ -333,7 +337,7 @@ const updateTableRows = (inputValue, selectedValue) => {
 };
 
 const createDeleteButton = () => {
-  const deleteButton = createButton("Delete checked rows", () => {
+  deleteButton = createButton("Delete checked rows", () => {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((checkbox) => {
       if (checkbox.checked) {
@@ -498,26 +502,28 @@ const initTable = (key) => {
   deleteButtonDiv.appendChild(deleteButton);
   content.appendChild(deleteButtonDiv);
 
-  document.addEventListener("change", () => {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const atLeastOneChecked = Array.from(checkboxes).some(
-      (checkbox) => checkbox.checked
-    );
-    deleteButton.style.display = atLeastOneChecked ? "block" : "none";
+  document.addEventListener("change", () => updateDeleteButton(deleteButton));
+};
 
-    checkboxes.forEach((checkbox) => {
-      const checkedRow = checkbox.closest("tr");
+const updateDeleteButton = (deleteButton) => {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const atLeastOneChecked = Array.from(checkboxes).some(
+    (checkbox) => checkbox.checked
+  );
+  deleteButton.style.display = atLeastOneChecked ? "block" : "none";
 
-      if (checkbox.checked) {
-        if (checkedRow) {
-          checkedRow.classList.add("checked-row");
-        }
-      } else {
-        if (checkedRow) {
-          checkedRow.classList.remove("checked-row");
-        }
+  checkboxes.forEach((checkbox) => {
+    const checkedRow = checkbox.closest("tr");
+
+    if (checkbox.checked) {
+      if (checkedRow) {
+        checkedRow.classList.add("checked-row");
       }
-    });
+    } else {
+      if (checkedRow) {
+        checkedRow.classList.remove("checked-row");
+      }
+    }
   });
 };
 

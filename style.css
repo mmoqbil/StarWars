@@ -329,6 +329,7 @@
   }
 
   .page-counter {
+    text-align: center;
     display: inline;
     min-width: 100px;
   }
