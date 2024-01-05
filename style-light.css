@@ -304,9 +304,28 @@ body.light-mode {
   margin: 0;
 }
 
+.light-mode .footer:hover {
+  background-color: goldenrod;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 .light-mode .page-counter {
   display: inline;
   min-width: 100px;
+}
+
+.light-mode .about-me-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #1f1f1f;
+  background-color: #fff;
+  padding: 20px;
+  border: 2px solid yellow;
+  z-index: 1000;
+  max-width: 80%;
 }
 
 @keyframes logo-star-container {

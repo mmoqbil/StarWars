@@ -1,39 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style-dark.css" id="mainStylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style-dark.css" id="mainStylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Font Icon CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
     <title>Document</title>
-</head>
-<body>
-    <div class = "logo-container">
-    <div id = "star" class = "logo-star-container"></div>
-    <div id = "wars" class = "logo-wars-container"></div>
-    <div class = "theme-toggle" id="themeToggle">
+  </head>
+  <body>
+    <div class="logo-container">
+      <div id="star" class="logo-star-container"></div>
+      <div id="wars" class="logo-wars-container"></div>
+      <div class="theme-toggle" id="themeToggle">
         <h1><i class="bi bi-moon-stars-fill" id="darkIcon"></i></h1>
         <h1><i class="bi bi-sun" id="lightIcon"></i></h1>
-    </div>
-</div>
-    <div id = "buttons" class = "buttons-container"></div>
-    <div class="loading-container" id="loadingContainer">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">Loading...</div>
       </div>
-    <div id = "content"></div>
-    <div id = "footer-div">
-    <footer class="footer" id ="footer">
-        <p class="footer-text">Mateusz Moqbil 2024</p>
-    </footer>
+    </div>
+    <div id="buttons" class="buttons-container"></div>
+    <div class="loading-container" id="loadingContainer">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading...</div>
+    </div>
+    <div id="content"></div>
+    <div id="footer-div">
+      <footer class="footer" id="footer">
+        <p class="footer-text">
+          Mateusz Moqbil 2024 (Click here to get informations about me)
+        </p>
+      </footer>
+    </div>
+    <div class="about-me-modal" id="aboutMeModal">
+      <span class="close-btn">&times;</span>
+      <div class="modal-content">
+        <h2>About Me</h2>
+        <img
+          src="images/profile-photo.jpg"
+          width="140px"
+          height="140px"
+          class="my-profile-image"
+          alt="My Profile Image"
+        />
+        <p>
+          I'm a Devstock Academy student, my goal is to be fullstack programmer.
+        </p>
+        <p>I also have an engineer's degree in IT.</p>
+        <p>
+          In my personal life I'm going to gym and play football once a week.
+        </p>
+        <p>I Like to help others so feel free to ask me questions!</p>
+        <p>Watching english Premier League is what I love to do.</p>
+        <p>Contact me: mateusz.moqbil@gmail.com</p>
+        <p>Facebook: Mateusz Moqbil</p>
+      </div>
     </div>
     <audio id="swordSound">
-        <source src="audio/sword-sound.mp3" type="audio/mpeg">
-        Twoja przeglądarka nie obsługuje elementu audio.
-      </audio>
+      <source src="audio/sword-sound.mp3" type="audio/mpeg" />
+      Twoja przeglądarka nie obsługuje elementu audio.
+    </audio>
     <script type="module" src="./main.js"></script>
-</body>
+  </body>
 </html>

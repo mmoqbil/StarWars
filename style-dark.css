@@ -1,9 +1,9 @@
-@import url('style-light.css');
+@import url("style-light.css");
 
 :root {
   --cursor-url: url("images/sword-cursor.png");
-  --bg-dark: url('images/bg.jpg');
-  --font-family: 'Lato', sans-serif;
+  --bg-dark: url("images/bg.jpg");
+  --font-family: "Lato", sans-serif;
   --text-color-dark: aliceblue;
   --button-bg-dark: #333;
   --button-text-dark: #fff;
@@ -23,8 +23,8 @@
   --input-bg-dark: #333;
   --input-border-dark: 1px solid #555;
   --input-color-dark: #fff;
-  --logo-star-bg-dark: url('images/star.svg');
-  --logo-wars-bg-dark: url('images/wars.svg');
+  --logo-star-bg-dark: url("images/star.svg");
+  --logo-wars-bg-dark: url("images/wars.svg");
   --table-bg-dark: #1f1f1f;
   --table-first-row-bg-dark: rgb(196, 16, 16);
   --table-row-bg-dark: #2f2f2f;
@@ -46,9 +46,9 @@
   --footer-color-dark: #fff;
 }
 
-  
-
-html, body, body * {
+html,
+body,
+body * {
   cursor: var(--cursor-url), auto;
   margin: 0;
 }
@@ -59,6 +59,7 @@ body {
   background-position: center;
   font-family: var(--font-family);
   color: var(--text-color-dark);
+  overflow-x: hidden;
   transition: background-color 0.5s ease;
 }
 
@@ -66,8 +67,8 @@ button {
   background-color: var(--button-bg-dark);
   color: var(--button-text-dark);
   border: 1px solid var(--button-border-dark);
-  padding: 6px 11px; 
-  border-radius: 5px; 
+  padding: 6px 11px;
+  border-radius: 5px;
   font-size: 16px;
   transition: all 0.3s;
 }
@@ -96,7 +97,8 @@ button {
 .main-button {
   background-color: var(--main-button-bg-dark);
   color: var(--main-button-text-dark);
-  padding: 12px 20px; 
+  padding: 12px 20px;
+  margin: 8px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -145,6 +147,7 @@ button:hover {
   border: var(--input-border-dark);
   color: var(--input-color-dark);
   margin: 3px;
+  border-radius: 5px !important;
 }
 
 .logo-container {
@@ -183,8 +186,7 @@ button:hover {
   width: 100%;
   border-collapse: collapse;
   background-color: var(--table-bg-dark);
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin: 0;
 }
 
 .mainTable tr:first-child {
@@ -243,11 +245,18 @@ tr td:last-child {
   color: var(--modal-button-text-dark);
 }
 
+.table-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  }
+
 .table-input {
   width: 80%;
   background-color: var(--table-input-bg-dark);
   color: var(--table-input-color-dark);
   border: 1px solid var(--table-input-border-dark);
+  border-radius: 5px !important;
 }
 
 .loading-container {
@@ -282,7 +291,7 @@ select {
   border: var(--input-border-dark);
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   transform: var(--checkbox-transform-dark);
 }
 
@@ -292,7 +301,7 @@ input[type=checkbox] {
 
 i {
   color: #fcf3f3;
-  position:absolute;
+  position: absolute;
   top: 15px;
   right: 15px;
 }
@@ -326,62 +335,110 @@ i:hover {
   margin: 0;
 }
 
+.footer:hover {
+  background-color: goldenrod;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 .page-counter {
-  display: inline;
+  vertical-align: middle;
+  margin-top: 5px;
   min-width: 100px;
 }
 
-@media screen and (max-width: 800px) and (min-width:755px) {
-  .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
-    width:280px;
+.about-me-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border: 2px solid yellow;
+  z-index: 1000;
+  max-width: 80%;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) and (min-width: 755px) {
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 280px;
   }
-  .input-default, .light-mode .input-default {
+  .input-default,
+  .light-mode .input-default {
     width: 40%;
     margin: 5px;
   }
 }
 
 @media screen and (max-width: 755px) and (min-width: 670px) {
-  .input-default, .light-mode .input-default {
+  .input-default,
+  .light-mode .input-default {
     width: 30%;
     margin: 5px;
   }
-  .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
-    width:230px;
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 230px;
   }
-  .table-input, .light-mode .table-input {
-    width: 50%;
-  }
-  i, .light-mode i {
+
+  i,
+  .light-mode i {
     font-size: 30px;
   }
 }
 
 @media screen and (max-width: 670px) {
-  .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
-    width:180px;
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 180px;
   }
-  i, .light-mode i {
+  i,
+  .light-mode i {
     font-size: 25px;
   }
-  .div-searches, .light-mode .div-searches{
-    display:block;
+  .input-default,
+  .light-mode .input-default {
+    width: default;
+  }
+  .div-searches,
+  .light-mode .div-searches {
+    display: block;
   }
   .search-by-div {
     display: flex;
     flex-direction: column;
     margin: 5px;
   }
-  .main-button, .light-mode .main-button {
-    padding: 4px 10px; 
+  .main-button,
+  .light-mode .main-button {
+    padding: 4px 10px;
     margin: 0px;
   }
-  .main-button:hover, .light-mode .main-button:hover {
+  .main-button:hover,
+  .light-mode .main-button:hover {
     padding: 4px 10px;
   }
-  .table-input, .light-mode .table-input {
-    width: 50%;
-  }
+
   th {
     display: none;
   }
@@ -389,7 +446,7 @@ i:hover {
     display: block;
   }
   .mainTable td::before {
-    content:attr(data-cell) ": ";
+    content: attr(data-cell) ": ";
     font-weight: 700;
   }
   tr:nth-of-type(2n) {
@@ -398,21 +455,66 @@ i:hover {
   .light-mode tr:nth-of-type(2n) {
     background-color: rgb(207, 182, 182);
   }
- 
-  .tdModal, .light-mode .tdModal {
+
+  .tdModal,
+  .light-mode .tdModal {
     max-width: 200px;
     font-size: 12px;
   }
+  .td-buttons {
+    display: block;
+  }
+  .td-buttons input[type="checkbox"] {
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .td-buttons button {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  .about-me-modal {
+    font-size: 13px;
+  }
+  .my-profile-image {
+    width: 70px;
+    height: 70px;
+  }
 }
 @media screen and (max-width: 500px) {
-  .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
-    width:120px;
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 120px;
   }
-  .main-button, .light-mode .main-button {
-    padding: 2px 7px; 
+  .main-button,
+  .light-mode .main-button {
+    padding: 2px 7px;
     font-size: 10px;
   }
-  i, .light-mode i {
-    font-size: 20px;
+  i,
+  .light-mode i {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .logo-star-container,
+  .logo-wars-container,
+  .light-mode .logo-star-container,
+  .light-mode .logo-wars-container {
+    width: 70px;
+  }
+  .main-button,
+  .light-mode .main-button {
+    padding: 1px 5px;
+    font-size: 7px;
+  }
+  i,
+  .light-mode i {
+    font-size: 7px;
   }
 }

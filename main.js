@@ -136,6 +136,7 @@ const createTable = (data) => {
         const tdButtons = document.createElement("td");
         tdButtons.setAttribute("data-cell", "ACTIONS");
         tdButtons.style.border = "1px solid";
+        tdButtons.classList.add("td-buttons");
         tdButtons.appendChild(buttonPlus);
         tdButtons.appendChild(buttonMinus);
         tdButtons.appendChild(rowCheckbox);
@@ -253,9 +254,7 @@ const createTableButtons = () => {
       tableInput.value
     } from ${calculateMaxPages(selectElement.value)}`;
   };
-  tableButtons.style.display = "flex";
-  tableButtons.style.justifyContent = "space-between";
-  tableButtons.style.marginBottom = "15px";
+  tableButtons.classList.add("table-buttons");
   tableButtons.appendChild(buttonPrev);
   tableButtons.appendChild(tableInput);
   tableButtons.appendChild(buttonNext);
@@ -438,7 +437,9 @@ const filterTableById = (searchId) => {
         }
       }
     } else {
-      alert("Liczba nie jest z zakresu podanego w placeholderze!");
+      alert(
+        "The entered number is out of the range specified in the placeholder."
+      );
       searchId = 1;
     }
   });
@@ -545,6 +546,26 @@ const setSwordSound = () => {
   });
 };
 
+const aboutMe = () => {
+  var modal = document.getElementById("aboutMeModal");
+  var footer = document.getElementById("footer");
+
+  const openModal = () => {
+    modal.style.display = "block";
+  };
+
+  const closeModal = () => {
+    modal.style.display = "none";
+  };
+
+  const handleFooterClick = () => {
+    openModal();
+  };
+
+  footer.addEventListener("click", handleFooterClick);
+  modal.querySelector(".close-btn").addEventListener("click", closeModal);
+};
+
 const initTheme = () => {
   const lightIcon = document.getElementById("lightIcon");
   const darkIcon = document.getElementById("darkIcon");
@@ -562,6 +583,7 @@ const initTheme = () => {
 
   initUI();
   setSwordSound();
+  aboutMe();
 };
 
 const initUI = () => {
