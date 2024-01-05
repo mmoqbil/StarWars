@@ -87,6 +87,7 @@ const createTable = (data) => {
 
       if (displayKeyIndex === 0) {
         const tdValueId = document.createElement("td");
+        tdValueId.setAttribute("data-cell", "ID");
         tdValueId.innerHTML = keyId;
         tdValueId.style.border = "1px solid";
         trValue.appendChild(tdValueId);
@@ -96,6 +97,7 @@ const createTable = (data) => {
       if (displayKeyIndex % 2 === 0 && displayKeyIndex < maxDisplayedKeyIndex) {
         if (propValue) {
           const tdValue = document.createElement("td");
+          tdValue.setAttribute("data-cell", propKey.toUpperCase());
           tdValue.innerHTML = propValue;
           tdValue.style.border = "1px solid";
           trValue.appendChild(tdValue);
@@ -104,6 +106,7 @@ const createTable = (data) => {
 
       if (displayKeyIndex === 4) {
         const tdCreatedValue = document.createElement("td");
+        tdCreatedValue.setAttribute("data-cell", "CREATED AT");
         tdCreatedValue.style.border = "1px solid";
         const dateObject = new Date(props["created"]);
         const day =
@@ -131,6 +134,7 @@ const createTable = (data) => {
         buttonMinus.classList.add("button-minus");
 
         const tdButtons = document.createElement("td");
+        tdButtons.setAttribute("data-cell", "ACTIONS");
         tdButtons.style.border = "1px solid";
         tdButtons.appendChild(buttonPlus);
         tdButtons.appendChild(buttonMinus);
@@ -488,6 +492,8 @@ const initTable = (key) => {
 
   mainTable = createTable(buttonsObject);
   mainTable.classList.add("mainTable");
+  searchByIdDiv.classList.add("search-by-div");
+  searchByNameDiv.classList.add("search-by-div");
   divSearches.classList.add("div-searches");
   divSearches.appendChild(searchByIdDiv);
   divSearches.appendChild(searchByNameDiv);

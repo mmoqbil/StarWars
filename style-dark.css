@@ -73,6 +73,7 @@ button {
 
 .button-plus {
   color: var(--plus-button-color-dark);
+  border: solid 1px var(--plus-button-color-dark);
   padding: 6px 12px;
   margin: 2px;
   font-size: 20px;
@@ -80,6 +81,7 @@ button {
 
 .button-minus {
   color: var(--minus-button-color-dark);
+  border: solid 1px var(--minus-button-color-dark);
   padding: 6px 12px;
   margin: 2px;
   font-size: 20px;
@@ -141,6 +143,7 @@ button:hover {
   background-color: var(--input-bg-dark);
   border: var(--input-border-dark);
   color: var(--input-color-dark);
+  margin: 3px;
 }
 
 .logo-container {
@@ -205,7 +208,7 @@ button:hover {
 }
 
 tr td:last-child {
-  min-width: 120px;
+  min-width: 135px;
 }
 
 .modal {
@@ -325,4 +328,90 @@ i:hover {
 .page-counter {
   display: inline;
   min-width: 100px;
+}
+
+@media screen and (max-width: 800px) and (min-width:755px) {
+  .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
+    width:280px;
+  }
+  .input-default, .light-mode .input-default {
+    width: 40%;
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 755px) and (min-width: 670px) {
+  .input-default, .light-mode .input-default {
+    width: 30%;
+    margin: 5px;
+  }
+  .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
+    width:230px;
+  }
+  .table-input, .light-mode .table-input {
+    width: 50%;
+  }
+  i, .light-mode i {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
+    width:180px;
+    margin: 0px;
+  }
+  i, .light-mode i {
+    font-size: 15px;
+  }
+  .div-searches, .light-mode .div-searches{
+    display:block;
+  }
+  .main-button, .light-mode .main-button {
+    padding: 4px 10px; 
+    margin: 0px;
+  }
+  .table-input, .light-mode .table-input {
+    width: 50%;
+  }
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+  }
+  .mainTable td::before {
+    content:attr(data-cell) ": ";
+    font-weight: 700;
+  }
+  tr:nth-of-type(2n) {
+    background-color: rgb(70, 36, 36);
+  }
+  .light-mode tr:nth-of-type(2n) {
+    background-color: rgb(207, 182, 182);
+  }
+  .tableModal, .light-mode .tableModal. {
+    width: 90%;
+  }
+  .tdModal, .light-mode .tdModal {
+    max-width: 200px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .logo-star-container, .logo-wars-container, .light-mode .logo-star-container, .light-mode .logo-wars-container {
+    width:120px;
+  }
+  .main-button, .light-mode .main-button {
+    padding: 2px 7px; 
+    font-size: 10px;
+  }
+  i, .light-mode i {
+    font-size: 10px;
+  }
+  .search-by-div {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+  }
 }
