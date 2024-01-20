@@ -3,6 +3,9 @@
 
 @media screen and (max-width: 800px) and (min-width: 755px) {
   .logo-star-container,
+  .buttons-container {
+    display: flex 
+  }
   .logo-wars-container,
   .light-mode .logo-star-container,
   .light-mode .logo-wars-container {
